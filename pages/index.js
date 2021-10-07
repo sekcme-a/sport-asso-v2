@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import HomeHeader from "src/components/public/HomeHeader"
 import SwiperImg from "src/components/public/SwiperImg"
 import About from "src/components/public/About"

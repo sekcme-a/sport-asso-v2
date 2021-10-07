@@ -1,5 +1,6 @@
 import React from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 const About = () => {
   return (
@@ -9,18 +10,20 @@ const About = () => {
         <h3>국민의 건강과 행복의 장을 여는 사단법인 대한생활체육회</h3>
       </div>
       <div className="about-content">
-        <div className="about-table">
-          <div className="about-img">
-            <Image
-            src="/rlarbstlr.png"
-              height={190}
-              width={155}
-              alt="총재 김균식"
-            />
+        <Link href="/info/greet" >
+          <div className="about-table">
+            <div className="about-img">
+              <Image
+              src="/rlarbstlr.png"
+                height={190}
+                width={155}
+                alt="총재 김균식"
+              />
+            </div>
+            <h4>총재인삿말</h4>
+            <p>어게인 필승코리아!<br/>김균식 총재의 인삿말 보러가기</p>
           </div>
-          <h4>총재인삿말</h4>
-          <p>어게인 필승코리아!<br/>김균식 총재의 인삿말 보러가기</p>
-        </div>
+        </Link>
 
         <div className="about-table">
           <div className="about-img">

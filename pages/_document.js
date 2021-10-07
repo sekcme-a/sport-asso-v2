@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html lang="kr">
         <Head>
-          <meta charset="UTF-8" />
+          <meta charSet="UTF-8" />
           <link rel="icon" href="/favicon.ico" />
         
           <meta httpEquiv="X-UA-Compatible" content="IE=edge"></meta>
