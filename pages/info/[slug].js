@@ -7,7 +7,7 @@ import Greet from "src/components/info/Greet"
 import Purpose from "src/components/info/Purpose"
 import Chart from "src/components/info/Chart"
 import Status from "src/components/info/Status"
-import Where from "src/components/info/Where"
+// import Where from "src/components/info/Where"
 
 const Info = () => {
   const [title, setTitle] = useState("")
