@@ -21,6 +21,7 @@
 .about-text h3{
   font-size: 19px;
   font-family: 'NanumSquareRound', sans-serif;
+  text-align: center;
 }
 .about-content{
   display: flex;

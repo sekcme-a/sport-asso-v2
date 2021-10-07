@@ -14,17 +14,23 @@
   display: block;
   text-align: center;
   margin-top: 8px;
-  font-weight: 600;
+  font-weight: bold;
+  font-family:'NanumSquareRound',
+  sans-serif;
 }
 .b{
   text-align: center;
   font-weight: 600;
+  font-family:'NanumSquareRound',
+  sans-serif;
 }
 
 .greetText{
   font-size: 18px;
   margin-top: 20px;
-  /* font-weight: bolder; */
+  letter-spacing: 1px;
+  font-weight: bolder;
+  line-height: 30px;
 }
 .greetText h4{
   font-size: 20px;

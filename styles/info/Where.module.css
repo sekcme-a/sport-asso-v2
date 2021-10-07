@@ -1,0 +1,18 @@
+.naverMapWhere {
+  border: 1px solid black;
+  margin-top: 20px;
+}
+
+.howToComeText {
+  margin-top: 15px;
+}
+
+.openNaverMap {
+  display: inline-block;
+  margin-top: 15px;
+  font-size: 15px;
+}
+
+.where {
+  height: 100vh;
+}

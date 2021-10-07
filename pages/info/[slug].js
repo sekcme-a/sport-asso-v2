@@ -4,6 +4,10 @@ import { MenuItems } from "data/MenuItems"
 import NavbarVertical from "src/components/public/NavbarVertical"
 import { useRouter } from "next/router"
 import Greet from "src/components/info/Greet"
+import Purpose from "src/components/info/Purpose"
+import Chart from "src/components/info/Chart"
+import Status from "src/components/info/Status"
+import Where from "src/components/info/Where"
 
 const Info = () => {
   const [title, setTitle] = useState("")
@@ -20,6 +24,7 @@ const Info = () => {
         return;
       }
     })
+    console.log(slug)
   },[slug])
 
   return (
@@ -34,6 +39,10 @@ const Info = () => {
             </div>
             <div className="content">
               {slug === "greet" && <Greet />}
+              {slug === "purpose" && <Purpose />}
+              {slug === "chart" && <Chart />}
+              {slug === "status" && <Status />}
+              {/* {slug === "where" && <Where send={true}/>} */}
             </div>
           </div>
           <NavbarVertical loc={title} />

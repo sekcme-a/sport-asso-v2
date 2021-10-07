@@ -80,8 +80,8 @@ const Navbar = () => {
                 ))}
                 {titleClick && (selectedTitle === item.title && (item.type==="sub" &&
                   <li key={index} className="nav-item nav-subItem">
-                    <div className="nav-links">
-                      <Link href={item.path} onClick={closeMobileMenu}>{item.subtitle}</Link>
+                    <div className="nav-links" onClick={closeMobileMenu}>
+                      <Link href={item.path}>{item.subtitle}</Link>
                     </div>
                   </li>
                 ))}
