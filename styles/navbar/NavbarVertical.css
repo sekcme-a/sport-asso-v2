@@ -1,0 +1,60 @@
+.NavVerticalContainer {
+  width: 20%;
+  margin-left: 10px;
+  box-sizing: border-box;
+}
+
+.NavVertical {
+  margin-left: 12px;
+  margin-top: 50px;
+  font-family: 'Roboto', sans-serif;
+  border: 2px solid black;
+  border-radius: 6px;
+  background-color: white;
+  z-index: 100;
+}
+
+.NavVertical .navLoc {
+  font-size: 22px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  background-color: #7a98d4;
+  border-bottom: 1px solid rgb(2, 78, 2);
+  border-radius: 3px;
+  height: 50px;
+  margin-top: -1px;
+}
+
+.NavVertical .navList {
+  margin-left: 15px;
+  margin-right: 15px;
+  list-style: none;
+}
+
+.NavVertical .navItem {
+  margin-top: 7px;
+  border-bottom: 1px solid rgb(1, 68, 1);
+}
+
+.NavVertical .navItem:last-child {
+  margin-bottom: 10px;
+}
+
+.NavVertical .navLink {
+  text-decoration: none;
+  font-size: 20px;
+  color: rgb(0, 48, 0);
+  transition: .6s;
+  font-weight: 600;
+}
+
+@media (max-width: 680px) {
+  .NavVerticalContainer {
+    display: none;
+  }
+
+  .content-container {
+    width: 100%;
+  }
+}

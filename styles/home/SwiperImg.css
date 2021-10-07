@@ -1,0 +1,50 @@
+.swiperImg{
+  min-height: 50vh;
+  /* border-top: 2px solid #beabea;
+  border-bottom: 3px solid #beabea; */
+}
+.swiperImg-info{
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: center;
+}
+.swiperImg-info h4{
+  margin-top: 20px;
+  font-size: 35px;
+  text-align: center;
+  width: 100%;
+  font-weight: lighter;
+  font-family: "roboto", sans-serif;
+}
+.swiperImg-info button{
+}
+
+.swiperImg-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 35vh;
+  margin: 0;
+  padding: 0;
+}
+
+.swiperImg-container .swiper {
+  width: 100%;
+  padding-top: 15px;
+  padding-bottom: 50px;
+}
+
+.swiperImg-container .swiper .swiper-wrapper .swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+  background: #000;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, #0006);
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+

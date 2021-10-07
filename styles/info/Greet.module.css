@@ -1,0 +1,31 @@
+.greetContent{
+  font-family:"Roboto",'Nanum Gothic',
+  sans-serif;
+}
+
+.img{
+  margin-top: 30px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+.a{
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+  font-weight: 600;
+}
+.b{
+  text-align: center;
+  font-weight: 600;
+}
+
+.greetText{
+  font-size: 18px;
+  margin-top: 20px;
+  /* font-weight: bolder; */
+}
+.greetText h4{
+  font-size: 20px;
+}
