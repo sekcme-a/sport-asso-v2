@@ -7,6 +7,7 @@ class MyDocument extends Document {
   }
 
   render() {
+  
     return (
       <Html lang="kr">
         <Head>
@@ -20,7 +21,9 @@ class MyDocument extends Document {
           <meta property="og:image" content="https://xn--vk1by6xrzecngs4l6obxj.com/img/logo.png" />
           <meta property="og:url" content="https://xn--vk1by6xrzecngs4l6obxj.com"></meta>
           <meta name="keywords" content="대한생활체육회"/>
-        </Head>
+
+      
+          </Head>
         <body>
           <Main />
           <NextScript />

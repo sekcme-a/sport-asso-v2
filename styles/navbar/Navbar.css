@@ -63,9 +63,13 @@
 }
 
 @media screen and (max-width: 1200px) {
-  /* .navbar-logo-img {
+  .navbar-logo-img {
     display: none;
-  } */
+  }
+  .navbar{
+    margin: 0px;
+    justify-content: right;
+  }
   .nav-item{
     font-size: 15px;
   }
@@ -74,7 +78,7 @@
   }
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 1000px) {
   .NavbarItems {
     position: relative;
   }
