@@ -63,11 +63,11 @@
 }
 
 @media screen and (max-width: 1200px) {
-  .navbar-logo-img {
+  /* .navbar-logo-img {
     display: none;
-  }
+  } */
   .nav-item{
-    font-size: 17px;
+    font-size: 15px;
   }
   .nav-menu {
     grid-gap: 0px;

@@ -7,7 +7,8 @@ import Greet from "src/components/info/Greet"
 import Purpose from "src/components/info/Purpose"
 import Chart from "src/components/info/Chart"
 import Status from "src/components/info/Status"
-import Where from "src/components/info/Where"
+// import Where from "src/components/info/Where"
+import WhereDemo from "src/components/info/WhereDemo"
 
 const Info = () => {
   const [title, setTitle] = useState("")
@@ -42,7 +43,7 @@ const Info = () => {
               {slug === "purpose" && <Purpose />}
               {slug === "chart" && <Chart />}
               {slug === "status" && <Status />}
-              {/* {slug === "where" && <Where />} */}
+              {slug === "where" && <WhereDemo />}
             </div>
           </div>
           <NavbarVertical loc={title} />

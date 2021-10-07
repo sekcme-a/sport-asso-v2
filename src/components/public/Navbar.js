@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { MenuItems } from "src/data/MenuItems"
 import DropdownPc from "src/components/public/DropdownPc"
@@ -21,6 +21,7 @@ const Navbar = () => {
   const onMouseLeave = () => {
     setDropdownmo(false)
   }
+
 
   return (
     <>
