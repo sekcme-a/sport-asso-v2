@@ -7,9 +7,9 @@ const Greet = () => {
   return (
     <>
       <Head>
-        <title>대한생활체육회|체육회소개-총재인삿말</title>
+        <title>대한생활체육회|총재인삿말</title>
         <meta name="description" content="(사)대한생활체육회 총재 김균식 총재 인삿말 - 어게인 필승 코리아!!" />
-        <meta property="og:title" content="대한생활체육회|체육회소개-총재인삿말" />
+        <meta property="og:title" content="대한생활체육회|총재인삿말" />
         <meta property="og:description" content="(사)대한생활체육회 총재 김균식 총재 인삿말 - 어게인 필승 코리아!!"></meta>
       </Head>
       <div className={styles.greetContent}>

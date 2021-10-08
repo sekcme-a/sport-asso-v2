@@ -2,6 +2,8 @@ import React, { useState, useEffect ,useRef }from "react";
 import Script from 'next/script'
 import style from "styles/info/Where.module.css"
 import Link from "next/link"
+import Image from "next/image"
+import Head from "next/head"
 
 const Where = () => {
    const kakaoMap = useRef(null)
@@ -47,19 +49,35 @@ const Where = () => {
   }, [kakaoMap]);
   return (
     <>
-      <Script type="text/javascript"
+      {/* <Script type="text/javascript"
         strategy="beforeInteractive"
-        src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=10143b83ffc3b3f9b4dfefb69908cb81&libraries=services`} />
+        src={`//dapi.kakao.com/v2/maps/sdk.js?appkey=10143b83ffc3b3f9b4dfefb69908cb81&libraries=services`} /> */}
+
+      {/* {kakaoMap ? (
         <div style={{ width: "400px", height: "300px" }}>
           <div ref={kakaoMap} style={{ width: "100%", height: "100%" }} />
         </div>
+      ) : (
+        <Image src="/navermap.png" alt="지도" />
+      )} */}
+      <Head>
+        <title>대한생활체육회|오시는길</title>
+        <meta name="description" content="(사)대한생활체육회 오시는 길 - 서울특별시 영등포구 버드나루로88, 인따르시아빌딩 101호" />
+        <meta property="og:title" content="대한생활체육회|오시는길" />
+        <meta property="og:description" content="(사)대한생활체육회 오시는 길 - 서울특별시 영등포구 버드나루로88, 인따르시아빌딩 101호"></meta>
+      </Head>
+      <div className={style.mapImg}>
+        <Link passHref={true} href="https://map.naver.com/v5/search/%EC%98%81%EB%93%B1%ED%8F%AC%EA%B5%AC%EB%B2%84%EB%93%9C%EB%82%98%EB%A3%A8%EB%A1%9C88%EC%9D%B8%EB%94%B0%EB%A5%B4%EC%8B%9C%EC%95%84%EB%B9%8C%EB%94%A9/place/1106183029?c=14127007.9607278,4512689.6688369,15,0,0,0,dh">
+        <Image src="/navermap.png"  width={430} height={300} alt="지도" />
+        </Link>
+      </div>
       <div className={style.howToComeText}>
-          <h5>주소 : 서울특별시 영등포구 버드나루로88, 인따르시아빌딩 101호</h5>
+          <h5>서울특별시 영등포구 버드나루로88, 인따르시아빌딩 101호</h5>
           <h5>(사)대한생활체육회</h5>
         <h6>영등포시장역 2번 출구에서 653m</h6>
         <Link passHref={true} href="https://map.naver.com/v5/search/%EC%98%81%EB%93%B1%ED%8F%AC%EA%B5%AC%EB%B2%84%EB%93%9C%EB%82%98%EB%A3%A8%EB%A1%9C88%EC%9D%B8%EB%94%B0%EB%A5%B4%EC%8B%9C%EC%95%84%EB%B9%8C%EB%94%A9/place/1106183029?c=14127007.9607278,4512689.6688369,15,0,0,0,dh">
           <a className={style.openNaverMap}>
-            네이버 지도로 보기
+            자세히 보기
           </a>
         </Link>
       </div>

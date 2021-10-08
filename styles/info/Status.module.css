@@ -64,8 +64,8 @@
   box-shadow: 0 10px 40px rgba(0, 0, 0, .2);
   /* border: 1px solid #b95ce4;
   background: linear-gradient(45deg, #b95ce4, #4f29cc); */
-  border: 1px solid #bc74dd;
-  background: linear-gradient(45deg, #c073e4, #7a5ed6);
+  /* border: 1px solid #bc74dd;
+  background: linear-gradient(45deg, #c073e4, #7a5ed6); */
 }
 
 .statusContainer .card .box .content {
@@ -100,7 +100,7 @@
 }
 
 .statusContainer .card:hover .box .content .idTextContainer h6 {
-  color: white;
+  /* color: white; */
 }
 
 .statusContainer .card .box .content .idPhotoContainer .idPhoto {

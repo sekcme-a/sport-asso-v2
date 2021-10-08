@@ -3,14 +3,10 @@ import Header from "src/components/public/Header"
 import { MenuItems } from "data/MenuItems"
 import NavbarVertical from "src/components/public/NavbarVertical"
 import { useRouter } from "next/router"
-import Greet from "src/components/info/Greet"
-import Purpose from "src/components/info/Purpose"
-import Chart from "src/components/info/Chart"
-import Status from "src/components/info/Status"
-import Where from "src/components/info/Where"
+import GroupTable from "src/components/group/Group"
+import Head from "next/head"
 
-
-const Info = () => {
+const Group = () => {
   const [title, setTitle] = useState("")
   const [subtitle, setSubtitle] = useState("")
 
@@ -19,7 +15,7 @@ const Info = () => {
 
   useEffect(() => {
     MenuItems.forEach((item) => {
-      if (item.path === `/info/${slug}`) {
+      if (item.path === `/group/${slug}`) {
         setTitle(item.title)
         setSubtitle(item.subtitle)
         return;
@@ -29,6 +25,13 @@ const Info = () => {
 
   return (
     <>
+      <Head>
+        <title>{`대한생활체육회|${subtitle}`}</title>
+        <meta name="description" content={`(사)대한생활체육회 단체소개-${subtitle} - 국민의 건강과 행복의 장을 여는 대한생활체육회`} />
+        <meta property="og:title" content={`대한생활체육회|${subtitle}`}/>
+        <meta property="og:description" content={`(사)대한생활체육회 단체소개-${subtitle} - 국민의 건강과 행복의 장을 여는 대한생활체육회`}></meta>
+      </Head>
+
       <Header nav={`${title}`} />
       <div className="body">
         <div className="body-container">
@@ -38,11 +41,10 @@ const Info = () => {
               <div className="menu-border"></div>
             </div>
             <div className="content">
-              {slug === "greet" && <Greet />}
-              {slug === "purpose" && <Purpose />}
-              {slug === "chart" && <Chart />}
-              {slug === "status" && <Status />}
-              {slug === "where" && <Where />}
+              {slug === "international" && <GroupTable type="InternationData" />}
+              {slug === "nation" && <GroupTable type="NationData" />}
+              {slug === "sports" && <GroupTable type="SportsData" />}
+              {slug === "sanha" && <GroupTable type="SanhaData" />}
             </div>
           </div>
           <NavbarVertical loc={title} />
@@ -51,4 +53,4 @@ const Info = () => {
     </>
   )
 }
-export default Info
+export default Group

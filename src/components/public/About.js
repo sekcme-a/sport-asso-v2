@@ -25,19 +25,22 @@ const About = () => {
           </div>
         </Link>
 
-        <div className="about-table">
-          <div className="about-img">
-            <Image
-            src="/business-people.jpg"
-              height={160}
-              width={250}
-              alt="총재 김균식"
-            />
+        <Link href="/info/chart" >
+          <div className="about-table">
+            <div className="about-img">
+              <Image
+              src="/business-people.jpg"
+                height={160}
+                width={250}
+                alt="총재 김균식"
+              />
+            </div>
+            <h4>중앙조직도</h4>
+            <p>대한생활체육회의<br/>중앙 조직도 보러가기</p>
           </div>
-          <h4>중앙조직도</h4>
-          <p>대한생활체육회의<br/>중앙 조직도 보러가기</p>
-        </div>
+        </Link>
 
+        <Link href="/info/status" >
         <div className="about-table">
           <div className="about-img">
             <Image
@@ -50,6 +53,9 @@ const About = () => {
           <h4>임원현황</h4>
           <p>대한생활체육회를<br/>운영하는 임원단 현황 보러가기</p>
         </div>
+        </Link>
+
+        <Link href="/info/where" >
         <div className="about-table">
           <div className="about-img">
             <Image
@@ -62,6 +68,7 @@ const About = () => {
           <h4>오시는 길</h4>
           <p>대한생활체육회<br/>사무실로 오시는 길 보러가기</p>
         </div>
+        </Link>
       </div>
     </div>
   )

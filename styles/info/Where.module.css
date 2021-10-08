@@ -4,18 +4,31 @@
 }
 
 .howToComeText {
-  margin-top: 15px;
+  font-size: 20px;
+  word-break: keep-all;
+  width: 290px;
+  margin-top: 20px;
 }
 
 .openNaverMap {
   display: inline-block;
   margin-top: 15px;
-  font-size: 15px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .where {
   height: 100vh;
 }
-.kakaomap{
+.mapImg{
   margin-top: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+@media (max-width: 960px) {
+  .howToComeText {
+    margin-top: -20px;
+    width: 100%;
+  }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { StatusData } from "data/StatusData"
 import style from "styles/info/Status.module.css"
 import Image from "next/image"
+import Head from "next/head"
 
 const Status = () => {
   let title;
@@ -47,7 +48,13 @@ const Status = () => {
   }
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>대한생활체육회|임원현황</title>
+        <meta name="description" content="(사)대한생활체육회 임원현황 - 국민의 건강과 행복의 장을 여는 대한생활체육회" />
+        <meta property="og:title" content="대한생활체육회|임원현황" />
+        <meta property="og:description" content="(사)대한생활체육회 임원현황 - 국민의 건강과 행복의 장을 여는 대한생활체육회"></meta>
+      </Head>
       <div className={style.customBodyStatus}>
       </div>
       <div className={style.body}>
@@ -111,7 +118,7 @@ const Status = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 

@@ -7,9 +7,9 @@ const Greet = () => {
   return (
     <>
       <Head>
-        <title>대한생활체육회|체육회소개-중앙 조직도</title>
+        <title>대한생활체육회|중앙 조직도</title>
         <meta name="description" content="(사)대한생활체육회 중앙 조직도 - 국민의 건강과 행복의 장을 여는 대한생활체육회" />
-        <meta property="og:title" content="대한생활체육회|체육회소개-중앙 조직도" />
+        <meta property="og:title" content="대한생활체육회|중앙 조직도" />
         <meta property="og:description" content="(사)대한생활체육회 중앙 조직도 - 국민의 건강과 행복의 장을 여는 대한생활체육회"></meta>
       </Head>
       <div>

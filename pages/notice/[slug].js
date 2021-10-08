@@ -3,14 +3,14 @@ import Header from "src/components/public/Header"
 import { MenuItems } from "data/MenuItems"
 import NavbarVertical from "src/components/public/NavbarVertical"
 import { useRouter } from "next/router"
-import Greet from "src/components/info/Greet"
-import Purpose from "src/components/info/Purpose"
-import Chart from "src/components/info/Chart"
-import Status from "src/components/info/Status"
-import Where from "src/components/info/Where"
+import Schedule from "src/components/notice/Schedule"
+import Result from "src/components/notice/Result"
+import Anouncement from "src/components/notice/Anouncement"
+import Media from "src/components/notice/Media"
+import Photo from "src/components/notice/Photo"
+import Reference from "src/components/notice/Reference"
 
-
-const Info = () => {
+const Group = () => {
   const [title, setTitle] = useState("")
   const [subtitle, setSubtitle] = useState("")
 
@@ -19,7 +19,7 @@ const Info = () => {
 
   useEffect(() => {
     MenuItems.forEach((item) => {
-      if (item.path === `/info/${slug}`) {
+      if (item.path === `/notice/${slug}`) {
         setTitle(item.title)
         setSubtitle(item.subtitle)
         return;
@@ -38,11 +38,12 @@ const Info = () => {
               <div className="menu-border"></div>
             </div>
             <div className="content">
-              {slug === "greet" && <Greet />}
-              {slug === "purpose" && <Purpose />}
-              {slug === "chart" && <Chart />}
-              {slug === "status" && <Status />}
-              {slug === "where" && <Where />}
+              {slug === "schedule" && <Schedule />}
+              {slug === "result" && <Result />}
+              {slug === "anouncement" && <Anouncement />}
+              {slug === "media" && <Media />}
+              {slug === "photo" && <Photo />}
+              {slug === "reference" && <Reference />}
             </div>
           </div>
           <NavbarVertical loc={title} />
@@ -51,4 +52,4 @@ const Info = () => {
     </>
   )
 }
-export default Info
+export default Group

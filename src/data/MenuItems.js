@@ -121,7 +121,7 @@ export const MenuItems = [
     type: "sub",
     title: '대회정보',
     subtitle: '경기결과',
-    path: '/notice/library',
+    path: '/notice/result',
     highlight: "",
   },
   {

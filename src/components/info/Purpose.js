@@ -6,9 +6,9 @@ const Greet = () => {
   return (
     <>
       <Head>
-        <title>대한생활체육회|체육회소개-설립목적,연혁</title>
+        <title>대한생활체육회|설립목적,연혁</title>
         <meta name="description" content="(사)대한생활체육회 설립목적 및 연혁 - 스포츠가 최고의 국민건강 복지다" />
-        <meta property="og:title" content="대한생활체육회|체육회소개-설립목적,연혁" />
+        <meta property="og:title" content="대한생활체육회|설립목적,연혁" />
         <meta property="og:description" content="(사)대한생활체육회 설립목적 및 연혁 - 스포츠가 최고의 국민건강 복지다"></meta>
       </Head>
       <h4 className={styles.title}>설립 목적</h4>

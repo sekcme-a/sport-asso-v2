@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Stylish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@700&display=swap');
+
+.nationBox {
+  cursor: default;
+  min-height: 150%;
+  width: 100%;
+}
+
+.hide{
+  display: none;
+}
+
+.nationTitle {
+  padding: 10px 0;
+  width: 100%;
+  border-bottom: 1px solid rgb(97, 96, 96);
+  color: #111;
+}
+
+.nationSpread {
+  float: right;
+  display: flex;
+  margin-right: 15px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+.nationTitle h4 {
+  display: inline-block;
+  margin-left: 20px;
+}
+
+.nationTitle h6 {
+  margin-left: 10px;
+  margin-right: 5px;
+  font-size: 14px;
+  display: inline-block;
+}
+
+.nationTitle i {
+  display: inline-block;
+}
+
+.nationTitle .fas.fa-caret-down {
+  padding-left: 3px;
+}
+
+.nation-title .fas.fa-caret-up {
+  padding-left: 3px;
+}
+
+.nationItem {
+  padding: 10px 22px;
+  width: 100%;
+  border-bottom: 1px solid rgb(189, 189, 189);
+  color: #111;
+  background-color: rgba(230, 228, 228, 0.438);
+  font-size: 16px;
+  font-family: 'Nanum Gothic',
+    sans-serif;
+}
+
+.nationItem:last-child {
+  border-bottom: 1px solid rgb(97, 96, 96);
+}
+
+.nationItem a {
+  text-decoration: none;
+  color: #111;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.nationItemTitle {
+  display: inline-block;
+  font-family: 'Stylish', sans-serif;
+  font-weight: bold;
+  width: 20vw;
+  min-width: 80px;
+}
+
+.nationItemContent {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.groupLookClose {
+  margin-left: 8px;
+  font-size: 11px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 680px) {
+  .nationTitle h4 {
+    margin-left: 5px;
+    font-size: 15px;
+  }
+
+  .nationTitle h6 {
+    margin-left: 5px;
+    margin-right: 2px;
+    font-size: 12px;
+    display: inline-block;
+  }
+}
