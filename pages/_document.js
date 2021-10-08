@@ -21,8 +21,10 @@ class MyDocument extends Document {
           <meta property="og:image" content="https://xn--vk1by6xrzecngs4l6obxj.com/img/logo.png" />
           <meta property="og:url" content="https://xn--vk1by6xrzecngs4l6obxj.com"></meta>
           <meta name="keywords" content="대한생활체육회"/>
-
-      
+          
+          
+          <meta name="naver-site-verification" content="fcd6939d5a2a544afe2de373e246bedd86d5702d" />
+          <meta name="google-site-verification" content="h0jRizviYwbetdIjDK5dX1iXSEiLWvRJ_JqBAnc7nfg" />
           </Head>
         <body>
           <Main />

@@ -1,0 +1,4 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow:/
+Sitemap: https://xn--vk1by6xrzecngs4l6obxj.com/sitemap.xml

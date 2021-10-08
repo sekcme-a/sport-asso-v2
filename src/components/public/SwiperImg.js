@@ -38,11 +38,11 @@ const SwiperImg = () => {
               width={300}
               alt="대한생활체육회 로고"
             /></SwiperSlide> */}
-          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-1.jpg" /></SwiperSlide>
-          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-2.jpg" /></SwiperSlide>
-          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-3.jpg" /></SwiperSlide>
-          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-4.jpg" /></SwiperSlide>
-          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-5.jpg" /></SwiperSlide>
+          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-1.jpg" alt="자연이미지"/></SwiperSlide>
+          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="자연이미지"/></SwiperSlide>
+          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-3.jpg" alt="자연이미지"/></SwiperSlide>
+          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-4.jpg" alt="자연이미지"/></SwiperSlide>
+          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-5.jpg" alt="자연이미지"/></SwiperSlide>
           
         </Swiper>
       </div>
