@@ -1,6 +1,7 @@
 import React from "react"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from "next/image"
+import Link from "next/link"
 
 import SwiperCore, {
   EffectCoverflow,Pagination, Loop, Autoplay
@@ -13,7 +14,9 @@ const SwiperImg = () => {
     <div className="swiperImg">
       <div className="swiperImg-info">
         <h4>PHOTO GALLERY</h4>
-        <div className="button">더보기</div>
+        <Link href="/notice/photo">
+          <div className="button">더보기</div>
+        </Link>
       </div>
       <div className="swiperImg-container">
         <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} slidesPerView={'auto'} coverflowEffect={{
