@@ -14,6 +14,12 @@ export const StatusData = [
     data: ["프로필 : ㈜경인매일 회장","㈜이조종합건설 회장"]
   },
   {
+    spot: "감사",
+    name: "심귀자",
+    img: "/IDPhoto/tlarnlwk.png",
+    data: ["프로필 : 생활정보신문 시흥알림방 대표"]
+  },
+  {
     spot: "수석부총재",
     name: "고일석",
     img: "/IDPhoto/rhdlftjr.png",
@@ -83,7 +89,7 @@ export const StatusData = [
     spot: "중앙이사",
     name: "김호중",
     img: "/IDPhoto/rlaghwnd.png",
-    data: ["프로필 : 동림문화사 대표이사"]
+    data: ["프로필 : 대한직장인체육회 경기위원장 역임","인천광역시 기업은행 지점장 역임"]
   },
   {
     spot: "중앙이사",

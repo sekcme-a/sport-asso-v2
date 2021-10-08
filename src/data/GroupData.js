@@ -74,6 +74,7 @@ export const GroupData = [
   },
   {
     groupName: "부산광역시체육회",
+    img:"rladuddlf.png",
     phone: "-",
     leader: "곽상석",
     titleData: ["전국체육회"],
@@ -162,21 +163,39 @@ export const GroupData = [
 
   //---------------------SanhaData------------
     {
-    groupName: "유,청소년연맹",
+    groupName: "유,청소년체육회",
     img:"tjtkddhr.png",
     phone: "-",
     leader: "서상옥",
     titleData: ["산하단체"],
-    contentData: ["유,청소년연맹"],
+    contentData: ["유,청소년체육회"],
     dataType: "SanhaData",
   },
     {
-    groupName: "실버시니어연맹",
+    groupName: "실버시니어체육회",
     img:"rlarlfans.png",
     phone: "-",
     leader: "김길문",
     titleData: ["산하단체"],
-    contentData: ["실버시니어연맹"],
+    contentData: ["실버시니어체육회"],
+    dataType: "SanhaData",
+  },
+  {
+    groupName: "직장체육회",
+    img:"dlcndwo.png",
+    phone: "-",
+    leader: "이충재",
+    titleData: ["산하단체"],
+    contentData: ["직장체육회"],
+    dataType: "SanhaData",
+  },
+  {
+    groupName: "다문화체육회",
+    img:"rlatjsdyd.png",
+    phone: "-",
+    leader: "김선용",
+    titleData: ["산하단체"],
+    contentData: ["다문화체육회"],
     dataType: "SanhaData",
   },
     
@@ -213,8 +232,9 @@ export const GroupData = [
   },
   {
     groupName: "농구협회",
+    img:"dlgudals.png",
     phone: "-",
-    leader: "배철훈",
+    leader: "이형민",
     titleData: ["협회"],
     contentData: ["농구협회"],
     dataType: "SportsData",
@@ -283,14 +303,6 @@ export const GroupData = [
     dataType: "SportsData",
   },
   {
-    groupName: "GX협회",
-    phone: "-",
-    leader: "황지환",
-    titleData: ["협회"],
-    contentData: ["GX협회"],
-    dataType: "SportsData",
-  },
-  {
     groupName: "보디빌딩협회",
     img: "rlarPwn.png",
     phone: "-",
@@ -355,6 +367,7 @@ export const GroupData = [
   },
   {
     groupName: "e-sports협회",
+    img:"wjdtndud.png",
     phone: "-",
     leader: "정수영",
     titleData: ["협회"],
@@ -363,6 +376,7 @@ export const GroupData = [
   },
   {
     groupName: "킥복싱협회",
+    img: "wjddmscjs.png",
     phone: "-",
     leader: "정은천",
     titleData: ["협회"],
@@ -430,11 +444,12 @@ export const GroupData = [
     dataType: "SportsData",
   },
   {
-    groupName: "요가필라테스협회",
+    groupName: "요가-필라테스협회",
+    img:"dldlstmd.png",
     phone: "-",
     leader: "이인승",
     titleData: ["협회"],
-    contentData: ["요가필라테스협회"],
+    contentData: ["요가-필라테스협회"],
     dataType: "SportsData",
   },
   {
