@@ -76,7 +76,7 @@ export const GroupData = [
     groupName: "부산광역시체육회",
     img:"rladuddlf.png",
     phone: "-",
-    leader: "곽상석",
+    leader: "김영일",
     titleData: ["전국체육회"],
     contentData: ["부산광역시체육회"],
     dataType: "NationData",

@@ -1,23 +1,23 @@
 // 이미지들은 public/img경로 안에 넣는다.
 
 export const StatusData = [
-    {
+  {
     spot: "고문",
     name: "석용석",
     img: "/IDPhoto/tjrdydtjr.png",
     data: ["프로필 : ㈜워터크린시스템 회장","국가안보 전략단 후원회장"]
   },
   {
+    spot: "고문",
+    name: "이동안",
+    img: "/IDPhoto/dlehddks.png",
+    data: ["프로필 : 청목평화동지회 회장","대통령 경호단장 역임"]
+  },
+  {
     spot: "총재",
     name: "김균식",
     img: "/IDPhoto/rlarbstlr.png",
     data: ["프로필 : ㈜경인매일 회장","㈜이조종합건설 회장"]
-  },
-  {
-    spot: "감사",
-    name: "심귀자",
-    img: "/IDPhoto/tlarnlwk.png",
-    data: ["프로필 : 생활정보신문 시흥알림방 대표"]
   },
   {
     spot: "수석부총재",
@@ -62,6 +62,18 @@ export const StatusData = [
     data: ["프로필 : 강원도 속초시의원","대한직장인체육회 부회장 역임"]
   },
   {
+    spot: "부총재",
+    name: "김민현",
+    img: "/IDPhoto/rlaalsgus.png",
+    data: ["프로필 : 주식회사 태성이엔디 회장","태성유통 회장"]
+  },
+  {
+    spot: "감사",
+    name: "심귀자",
+    img: "/IDPhoto/tlarnlwk.png",
+    data: ["프로필 : 생활정보신문 시흥알림방 대표"]
+  },
+  {
     spot: "사무총장",
     name: "김문상",
     img: "/IDPhoto/rlaanstkd.png",
@@ -75,12 +87,6 @@ export const StatusData = [
   },
   {
     spot: "중앙이사",
-    name: "이용준",
-    img: "/IDPhoto/dldydwns.png",
-    data: ["프로필 : 경성테크 대표이사","불날리 매장 구구상사 대표이사"]
-  },
-  {
-    spot: "중앙이사",
     name: "이근재",
     img: "/IDPhoto/dlrmswo.png",
     data: ["프로필 : ㈜지엑스코리아 부사장","사)서울국제싸이앤스클럽 대표"]
@@ -89,13 +95,13 @@ export const StatusData = [
     spot: "중앙이사",
     name: "김호중",
     img: "/IDPhoto/rlaghwnd.png",
-    data: ["프로필 : 대한직장인체육회 경기위원장 역임","인천광역시 기업은행 지점장 역임"]
+    data: ["프로필 : 동림문화사 대표이사"]
   },
   {
     spot: "중앙이사",
     name: "방명환",
     img: "/IDPhoto/qkdaudghks.png",
-    data: ["프로필 : 동림문화사 대표이사"]
+    data: ["프로필 : 대한직장인체육회 경기위원장 역임","인천광역시 기업은행 지점장 역임"]
   },
   {
     spot: "중앙이사",
