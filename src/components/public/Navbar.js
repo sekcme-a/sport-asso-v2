@@ -24,45 +24,40 @@ const Navbar = () => {
 
 
   return (
-    <>
-      <nav className="navbar">
-        <Link href="/" as="/" passHref>
+    <div className="navbar">
+      <div className="navbar-logo">
+        <Link href="/" passHref>
           <Image
             src="/logo.png"
-            className="navbar-logo-img"
             height={60}
             width={190}
             alt="대한생활체육회 로고"
+            className="navbar-logo-img"
           />
         </Link>
-        <div className="menu-icon" onClick={handleClick}>
-          <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
-        </div>
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          {MenuItems.map((item, index) => {
-            return (
-              <>
-                {(item.type === "main") && ((item.child) ? (
-                  <li className="nav-item"
-                    key={index}
-                    onMouseEnter={()=>onMouseEnter(item.title)}
-                    onMouseLeave={onMouseLeave}>
-                    <div className="nav-links" onClick={closeMobileMenu}>
-                      {item.title} <ArrowDropDownIcon className="arrowdropdown"/>  {/*Dropdown*/}
-                    </div>
-                    {dropdownmo && (item.title===onMouseTitle &&<DropdownPc mainTitle={onMouseTitle} />)}
-                  </li>
-                ) : (
+      </div>
+      <ul className="navbar-content">
+        {MenuItems.map((item, index) => {
+          return (
+            <>
+              {(item.type === "main") && ((item.child) ? (
+                <li className="nav-item"
+                  key={index}
+                  onMouseEnter={() => onMouseEnter(item.title)}
+                  onMouseLeave={onMouseLeave}>
+                  {item.title} <ArrowDropDownIcon className="arrowdropdown" />
+                  {dropdownmo && (item.title===onMouseTitle &&<DropdownPc mainTitle={onMouseTitle} />)}
+                </li>
+              ) : (
                   <li className="nav-item" key={index}>
-                      <Link href={item.path} as={item.path} className="nav-links" onClick={closeMobileMenu}>{item.title}</Link>
+                    <Link href={item.path} className="nav-links" onClick={closeMobileMenu}>{item.title}</Link>
                   </li>
-                ))}
-              </>
-            )
-          })}
-        </ul>
-      </nav>
-    </>
+              ))}
+            </>
+          )
+        })}
+      </ul>
+    </div>
   );
 };
 

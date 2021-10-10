@@ -35,62 +35,48 @@ const Navbar = () => {
   },[])
 
   return (
-    <>
-      <nav className="navbar">
-        <div className="navbar-logo-img">
-          <Link href="/" as="/" passHref>
-            <Image
-              src="/logo.png"
-              height={60}
-              width={190}
-              alt="대한생활체육회 로고"
-            />
-          </Link>
-        </div>
-        <div className="menu-icon" onClick={handleClick}>
-          {click ? <CloseIcon />:<MenuIcon />}
-        </div>
-        <ul className={click ? 'nav-menu active' : 'nav-menu'}>
-          {MenuItems.map((item, index) => {
-            return (
-              <>
-                {(item.type === "main") && ((item.child) ? (
-                  <>
-                    {titleClick ? (item.title === selectedTitle ? (
-                      <li key={index} className="nav-item nav-title-clicked" onClick={()=>onTitleClick(item.title)}>
-                        <div className="nav-links title">{`${item.title} `}<ArrowDropUpIcon className="arrowdropdown"/></div>
-                      </li>
-                    ) : (
-                      <li key={index} className="nav-item" onClick={()=>onTitleClick(item.title)}>
-                        <div className="nav-links title">{`${item.title} `}<ArrowDropDownIcon className="arrowdropdown"/></div>
-                      </li>
-                    )
-                    ) :
-                      <li key={index} className="nav-item" onClick={()=>onTitleClick(item.title)}>
-                        <div className="nav-links title">{`${item.title} `}<ArrowDropDownIcon className="arrowdropdown"/></div>
-                      </li>
-                    }
-                  </>
-                ) : (
-                    <li key={index} className="nav-item">
-                      <div className="nav-links">
-                        <Link href={item.path} onClick={closeMobileMenu}>{item.title}</Link>
-                      </div>
-                    </li>
-                ))}
-                {titleClick && (selectedTitle === item.title && (item.type==="sub" &&
-                  <li key={index} className="nav-item nav-subItem">
-                    <div className="nav-links" onClick={closeMobileMenu}>
-                      <Link href={item.path}>{item.subtitle}</Link>
-                    </div>
+    <div className="navbar-mobile">
+      <div className="navbar-mobile-logo">
+        <Link href="/" passHref>
+          <Image
+            src="/logo.png"
+            height={60}
+            width={190}
+            alt="대한생활체육회 로고"
+            className="navbar-logo-img"
+          />
+        </Link>
+      </div>
+      <div className="mobile-menu-icon" onClick={handleClick}>
+        {click ? <CloseIcon />:<MenuIcon />}
+      </div>
+      <ul className={click ? 'mobile-nav-menu active' : 'mobile-nav-menu'}>
+        {MenuItems.map((item, index) => {
+          return (
+            <>
+              {(item.type === "main") ? (
+                <>
+                  <li key={index} onClick={()=>onTitleClick(item.title)} className={titleClick ? (item.title === selectedTitle ? "mobile-nav-title mobile-nav-title-selected":"mobile-nav-title"):"mobile-nav-title"}>
+                    {`${item.title}`}{titleClick ? (item.title === selectedTitle ? <ArrowDropUpIcon className="mobile-arrowIcon" /> : <ArrowDropDownIcon className="mobile-arrowIcon" />) : <ArrowDropDownIcon className="mobile-arrowIcon" />}
                   </li>
-                ))}
-              </>
-            )
-          })}
-        </ul>
-      </nav>
-    </>
+                </>
+              ) : (
+                <>
+                    {titleClick && (selectedTitle === item.title && (item.type === "sub" &&
+                      <Link href={item.path}>
+                        <li key={index} className="mobile-nav-item">
+                          {item.subtitle}
+                        </li>
+                      </Link>
+                  ))}
+                </>
+              )
+              }
+            </>
+          )
+        })}
+      </ul>
+    </div>
   );
 };
 

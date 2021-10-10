@@ -1,0 +1,58 @@
+.navbar-mobile{
+  display: flex;
+  align-items: center;
+}
+.navbar-mobile-logo{
+  margin-left: 20px;
+  width: 40%;
+  cursor: pointer;
+}
+.mobile-menu-icon{
+  width: 60%;
+  text-align: end;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.mobile-nav-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* height: 150%; */
+  /*모바일 메뉴바 크기*/
+  position: absolute;
+  top: 60px;
+  left: -100%;
+  opacity: 1;
+  transition: all 0.5s ease;
+  justify-content: flex-start;
+  color: white;
+  font-family: "NanumSquareRound",
+  sans-serif;
+  font-size: 22px;
+  text-align: center;
+}
+
+
+.mobile-nav-menu.active {
+  background: rgba(51, 50, 50, 0.98);
+  left: 0;
+  opacity: 1;
+  transition: all 0.5s ease;
+  z-index: 1;
+}
+
+.mobile-nav-title{
+  padding: 15px 0;
+  border-bottom: 2px solid #555;
+  cursor: pointer;
+  padding-left: 12px;
+}
+.mobile-nav-title.mobile-nav-title-selected {
+  background: #222;
+}
+
+.mobile-nav-item{
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(68, 68, 68, 0.589);
+  cursor: pointer;
+}

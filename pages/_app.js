@@ -1,5 +1,6 @@
 import 'styles/globals.css'
 import 'styles/navbar/Navbar.css'
+import 'styles/navbar/NavbarMobile.css'
 import 'styles/navbar/Dropdown.css'
 import 'styles/home/HomeHeader.css'
 import 'styles/home/SwiperImg.css'
@@ -22,10 +23,14 @@ function MyApp({ Component, pageProps }) {
   const [mobileMode, setMobileMode] = useState("false")
 
   useEffect(() => {
-    if (window.innerWidth < 960)
-      setMobileMode(true)
-    else
-      setMobileMode(false)
+    function handleResize() {
+      if (window.innerWidth < 690)
+        setMobileMode(true)
+      else
+        setMobileMode(false)
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
   },[])
   return (
     <>
