@@ -1,10 +1,10 @@
 .navbar-mobile{
   display: flex;
   align-items: center;
+  min-height: 60px;
 }
 .navbar-mobile-logo{
   margin-left: 20px;
-  width: 40%;
   cursor: pointer;
 }
 .mobile-menu-icon{

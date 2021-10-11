@@ -91,3 +91,9 @@
 
 
 }
+
+@media (max-width: 280px) {
+  .banner__text h1 {
+    font-size: 24px;
+  }
+}

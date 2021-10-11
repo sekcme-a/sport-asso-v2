@@ -64,7 +64,7 @@ const Navbar = () => {
                 <>
                     {titleClick && (selectedTitle === item.title && (item.type === "sub" &&
                       <Link href={item.path}>
-                        <li key={index} className="mobile-nav-item">
+                        <li key={index} className="mobile-nav-item" onClick={closeMobileMenu}>
                           {item.subtitle}
                         </li>
                       </Link>
