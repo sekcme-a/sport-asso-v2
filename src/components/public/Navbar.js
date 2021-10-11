@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext ,useEffect } from "react";
 import Link from "next/link";
 import { MenuItems } from "src/data/MenuItems"
 import DropdownPc from "src/components/public/DropdownPc"
 import Image from "next/image"
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import { UserContext } from "src/context";
+import { auth } from "../firebase";
 
 const Navbar = () => {
   const [click, setClick] = useState(false)
   const [dropdownmo, setDropdownmo] = useState(false)
   const [onMouseTitle, setOnMouseTitle] = useState("")
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+
+  const { user, username } = useContext(UserContext);
 
   const handleClick = () => setClick(!click)
   const closeMobileMenu = () => setClick(false)
@@ -22,6 +27,17 @@ const Navbar = () => {
     setDropdownmo(false)
   }
 
+  const logoutClick = () => {
+    auth.signOut()
+    setIsUserLoggedIn(false)
+  }
+
+  useEffect(() => {
+    if (user) {
+      setIsUserLoggedIn(true)
+    } else
+      setIsUserLoggedIn(false)
+  },[user])
 
   return (
     <div className="navbar">
@@ -56,6 +72,7 @@ const Navbar = () => {
             </>
           )
         })}
+        {isUserLoggedIn && <li className="log-out" onClick={logoutClick}>로그아웃</li>}
       </ul>
     </div>
   );
