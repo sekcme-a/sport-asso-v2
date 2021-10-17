@@ -289,7 +289,7 @@ const Createpost = () => {
             if (item.path.includes("notice")) {
               return (
                 <div>
-                    <input id={index} onChange={e=>{onCheckboxChange(e.currentTarget.checked,item.path)}} type="checkbox" name="postTo" value={item.subtitle} />{item.subtitle}<br />
+                    <input key={index} onChange={e=>{onCheckboxChange(e.currentTarget.checked,item.path)}} type="checkbox" name="postTo" value={item.subtitle} />{item.subtitle}<br />
                 </div>
               )
             }

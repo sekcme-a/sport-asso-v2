@@ -78,7 +78,7 @@ const Status = () => {
                         <div className={style.hide}>{prevSpot = item.spot}</div>
                       </>
                     )}
-                    <div className={style.card}>
+                    <div key={index} className={style.card}>
                       <div className={style.box}>
                         <div className={style.content}>
                           <div className={style.idPhotoContainer}>

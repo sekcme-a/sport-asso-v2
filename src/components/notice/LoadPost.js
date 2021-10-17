@@ -41,7 +41,7 @@ const LoadPost = (props) => {
       {listData.map((item, index) => {
         // console.log(item.title)
         return (
-          <Link href='/article/[filename]/[id]'as={`/article/${props.folderName}/${item.id}`}>
+          <Link key={index} href='/article/[filename]/[id]'as={`/article/${props.folderName}/${item.id}`}>
             <li className={style.noticeTable}>
               <h4 className={style.noticeTitle}>{item.title}</h4>
               <h6 className={style.noticeInfo}>{`${item.author} | ${item.createdAt}`}</h6>
