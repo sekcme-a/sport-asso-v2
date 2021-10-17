@@ -10,6 +10,7 @@ import { FileUpload } from "src/firebase/FileUpload"
 import { firestore as db } from "src/components/firebase"
 import { uploadToFirebase } from "src/firebase/uploadToFirebase"
 // import { useBeforeunload } from "react-beforeunload"
+import QuillPage from 'src/components/author/Quillpage'
 
 const QuillNoSSRWrapper = dynamic(import('react-quill'), {
   ssr: false,
@@ -17,11 +18,6 @@ const QuillNoSSRWrapper = dynamic(import('react-quill'), {
 })
 
 
-// import QuillPage from "src/components/author/Quillpage"
-const QuillPage = dynamic(import('/opt/build/repo/src/components/author/Quillpage'), {
-  ssr: false,
-  loading: () => <p>Loading ...</p>,
-})
 const Createpost = () => {
   const [title, setTitle] = useState("")
   const [checkedList, setCheckedList] = useState([])
