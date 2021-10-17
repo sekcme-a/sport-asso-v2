@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+/*import React, { useState, useEffect, useContext } from "react"
 import dynamic from 'next/dynamic'
 import { MenuItems } from 'src/data/MenuItems'
 import { Router, useRouter } from "next/router"
@@ -7,7 +7,7 @@ import { UserContext } from "src/context";
 import { CompressImage } from "src/hooks/CompressImage"
 import CachedIcon from '@mui/icons-material/Cached';
 import { FileUpload } from "src/firebase/FileUpload"
-import { firestore as db, FieldValue } from "src/components/firebase"
+import { firestore as db } from "src/components/firebase"
 import { uploadToFirebase } from "src/firebase/uploadToFirebase"
 // import { useBeforeunload } from "react-beforeunload"
 
@@ -314,4 +314,16 @@ const Createpost = () => {
     </div>
   )
 }
-export default Createpost
+export default Createpost*/
+
+import React from "react"
+
+const Createpost = () => {
+  return (
+    <>
+      
+    </>
+  )
+}
+
+export default Createpost;
