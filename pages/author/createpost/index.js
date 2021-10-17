@@ -10,13 +10,46 @@ import { FileUpload } from "src/firebase/FileUpload"
 import { firestore as db } from "src/components/firebase"
 import { uploadToFirebase } from "src/firebase/uploadToFirebase"
 // import { useBeforeunload } from "react-beforeunload"
-import QuillPage from 'src/components/author/Quillpage'
 
 const QuillNoSSRWrapper = dynamic(import('react-quill'), {
   ssr: false,
   loading: () => <p>로딩중 ...</p>,
 })
 
+const modules = {
+  toolbar: [
+    [{ header: '1' }, { header: '2' }],
+    [{ size: [] }],
+    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+    [{ align: '' }, { align: 'center' }, { align: 'right' }, { align: 'justify' }],
+    [
+      { list: 'ordered' },
+      { list: 'bullet' },
+      { indent: '-1' },
+      { indent: '+1' },
+    ],
+    ['link'],
+    ['clean'],
+  ],
+  clipboard: {
+    // toggle to add extra line breaks when pasting HTML:
+    matchVisual: false,
+  },
+}
+const formats = [
+  'header',
+  'size',
+  'bold',
+  'italic',
+  'underline',
+  'strike',
+  'blockquote',
+  'list',
+  'bullet',
+  'indent',
+  'link',
+  'align',
+]
 
 const Createpost = () => {
   const [title, setTitle] = useState("")
@@ -29,6 +62,10 @@ const Createpost = () => {
   const [imgList, setImgList] = useState([])
 
   const [textData, setTextData] = useState("")
+
+  const onChange = (notes) => {
+    setTextData(notes)
+  }
 
   const [post, setPost] = useState("")
 
@@ -303,7 +340,7 @@ const Createpost = () => {
         <textarea name="imgURL" value={imgHTML}cols="60" rows="10" readOnly ></textarea><br/>
         <input type="submit" value="업로드" onClick={onSubmit}></input>
       </form>
-      <QuillPage setTextData={setTextData} />
+      <QuillNoSSRWrapper onChange={onChange} modules={modules} formats={formats} theme="snow" />
       미리보기
       <div className="post-preview" onClick={() => { onPreviewClick() }}><CachedIcon /></div>
       <QuillNoSSRWrapper value={post} readOnly={true} theme="bubble" />
