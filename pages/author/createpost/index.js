@@ -1,4 +1,4 @@
-/*import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import dynamic from 'next/dynamic'
 import { MenuItems } from 'src/data/MenuItems'
 import { Router, useRouter } from "next/router"
@@ -314,16 +314,16 @@ const Createpost = () => {
     </div>
   )
 }
-export default Createpost*/
+export default Createpost
 
-import React from "react"
+// import React from "react"
 
-const Createpost = () => {
-  return (
-    <>
+// const Createpost = () => {
+//   return (
+//     <>
       
-    </>
-  )
-}
+//     </>
+//   )
+// }
 
-export default Createpost;
+// export default Createpost;
