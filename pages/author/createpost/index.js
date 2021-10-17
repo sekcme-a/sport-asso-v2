@@ -18,7 +18,7 @@ const QuillNoSSRWrapper = dynamic(import('react-quill'), {
 
 
 // import QuillPage from "src/components/author/Quillpage"
-const QuillPage = dynamic(import('src/components/author/Quillpage'), {
+const QuillPage = dynamic(import('/opt/build/repo/src/components/author/Quillpage'), {
   ssr: false,
   loading: () => <p>Loading ...</p>,
 })
