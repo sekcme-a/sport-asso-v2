@@ -34,3 +34,9 @@
   color: black;
   padding: 12px 16px;
 }
+
+@media screen and (max-width: 900px) {
+  .dropdown-menu {
+    top: 53px;
+  } 
+}

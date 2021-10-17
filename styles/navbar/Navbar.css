@@ -46,6 +46,17 @@
   cursor: pointer;
 }
 
+.log-out{
+  background-color: #642ce6;
+  padding: 0px 10px;
+  font-size: 15px;
+  color: white;
+  transition: .5s;
+}
+.log-out:hover{
+  background-color: #4921a8;
+}
+
 
 @media screen and (max-width: 900px) {
   .navbar{

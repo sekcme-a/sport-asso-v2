@@ -15,7 +15,7 @@ export const MenuItems = [
   {
     type: "sub",
     title: "체육회소개",
-    subtitle: '총재 인삿말',
+    subtitle: '총재 인사말',
     path: '/info/greet',
     highlight: "",
   },

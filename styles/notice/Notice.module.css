@@ -1,0 +1,54 @@
+.noticeContainer{
+  display: block;
+  font-family: 'NanumBarunGothic',
+  sans-serif;
+  width: 100%;
+}
+.noticeTable{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  margin: 5px 0;
+  border: 1px solid rgb(129, 129, 129);
+  border-radius: 5px;
+  cursor: pointer;
+  transition: .5s;
+  color: #222;
+  word-break: keep-all;
+  width: 98%;
+}
+
+.noticeTable:hover {
+  background-color: #ccccccad;
+}
+
+.noticeTable:first-child {
+  margin-top: 5px;
+}
+
+.noticeTitle {
+  display: inline-block;
+  flex-grow: 1;
+  margin-left: 12px;
+  font-size: 20px;
+}
+
+.noticeInfo {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 20%;
+  margin-right: 6px;
+  font-size: 12px;
+  text-align: right;
+}
+
+@media (max-width: 340px) {
+  .noticeInfo{
+    font-size: 5px;
+    width: 25%;
+  }
+  .noticeTitle{
+    font-size: 14px;
+  }
+}

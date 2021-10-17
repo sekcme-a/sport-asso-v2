@@ -6,6 +6,7 @@ import Image from "next/image"
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { UserContext } from "src/context";
 import { auth } from "../firebase";
+import Router from "next/router"
 
 const Navbar = () => {
   const [click, setClick] = useState(false)
@@ -30,6 +31,7 @@ const Navbar = () => {
   const logoutClick = () => {
     auth.signOut()
     setIsUserLoggedIn(false)
+    Router.push("/")
   }
 
   useEffect(() => {
@@ -72,7 +74,7 @@ const Navbar = () => {
             </>
           )
         })}
-        {isUserLoggedIn && <li className="log-out" onClick={logoutClick}>로그아웃</li>}
+        {isUserLoggedIn && <li className="nav-item log-out" onClick={logoutClick}>로그아웃</li>}
       </ul>
     </div>
   );

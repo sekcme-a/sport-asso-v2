@@ -19,6 +19,7 @@ import { useState, useEffect } from "react"
 import Head from 'next/head'
 import { UserContext } from "src/context"
 import { useUserData } from "src/hooks/useUserData"
+import 'react-quill/dist/quill.snow.css'
 
 
 //{ Component, pageProps }

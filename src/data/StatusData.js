@@ -33,6 +33,18 @@ export const StatusData = [
   },
   {
     spot: "부총재",
+    name: "권용철",
+    img: "/IDPhoto/rnjsdydcjf.png",
+    data: ["프로필 : (주)Global James Group 회장","(주)제임스통상 대표"]
+  },
+  {
+    spot: "부총재",
+    name: "서승원",
+    img: "/IDPhoto/tjtmddnjs.png",
+    data: ["프로필 : 투데이경인 대표이사","푸른환경21 회장"]
+  },
+  {
+    spot: "부총재",
     name: "이창훈",
     img: "/IDPhoto/dlckdgns.png",
     data: ["프로필 : ㈜이조건설 대표이사"]

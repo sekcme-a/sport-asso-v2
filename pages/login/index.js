@@ -124,9 +124,6 @@ const LoginUI = () => {
           <input type="checkbox" id="flip" />
           <div className="cover">
             <div className="front">
-              {/* <div className="frontImg">
-                <Image src="/logo-circle-small.png" alt="대한생활체육회 로고" width={500} height={500} />
-              </div> */}
               <img src="/logo-circle-small.png" alt="대한생활체육회 로고" />
               <div className="loginText">
                 <span className="text-1">국민의 건강과<br />행복의 장을 여는</span>
@@ -134,9 +131,6 @@ const LoginUI = () => {
               </div>
             </div>
             <div className="back">
-              {/* <div className="backImg">
-                <Image src="/logo-circle-small.png" alt="대한생활체육회 로고" width={500} height={500} />
-              </div> */}
               <img className="backImg" src="/logo-circle-small.png" alt="대한생활체육회 로고" />
               <div className="loginText">
                 <span className="text-1">Complete miles of journey <br /> with one step</span>

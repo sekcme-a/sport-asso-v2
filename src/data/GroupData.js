@@ -64,6 +64,15 @@ export const GroupData = [
     dataType: "NationData",
   },
   {
+    groupName: "경상남도체육회",
+    img: "rhkrtkdtjr.png",
+    phone: "-",
+    leader: "곽상석",
+    titleData: ["전국체육회"],
+    contentData: ["경상남도체육회"],
+    dataType: "NationData",
+  },
+  {
     groupName: "광주광역시체육회",
     img: "dldusghk.png",
     phone: "-",
@@ -450,15 +459,6 @@ export const GroupData = [
     leader: "이인승",
     titleData: ["협회"],
     contentData: ["요가-필라테스협회"],
-    dataType: "SportsData",
-  },
-  {
-    groupName: "카약협회",
-    img: "gkstjdgh.png",
-    phone: "-",
-    leader: "한성호",
-    titleData: ["협회"],
-    contentData: ["카약협회"],
     dataType: "SportsData",
   },
   {
