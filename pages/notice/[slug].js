@@ -11,6 +11,7 @@ import Photo from "src/components/notice/Photo"
 import Reference from "src/components/notice/Reference"
 import { UserContext } from "src/context";
 import LoadPost from "src/components/notice/LoadPost"
+import LoadPhoto from "src/components/notice/LoadPhoto"
 
 const Group = () => {
   const [title, setTitle] = useState("")
@@ -64,7 +65,9 @@ const Group = () => {
               {slug === "media" && <Media />}
               {slug === "photo" && <Photo />}
               {slug === "reference" && <Reference />}
-              <LoadPost folderName={cusSlug} page={page}/>
+              {slug === "photo" ? (
+                  <LoadPhoto page={page}/>
+              ):(<LoadPost folderName={cusSlug} page={page}/>)}
             </div>
           </div>
           <NavbarVertical loc={title} />

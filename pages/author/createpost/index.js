@@ -217,9 +217,15 @@ const Createpost = () => {
     let imgsURL = []
     let filesURL;
     let postText;
+    let thumbnailURL = "";
+    let temp;
     if (title) {
       if (lists.length !== 0) {
         imgsURL = await uploadImages();
+        if (imgsURL[0]) {
+          temp = imgsURL[0].split("URLSTARTPOINT")
+          thumbnailURL = temp[1]
+        }
         // filesURL = await uploadFiles();
         postText = changePostText(imgsURL)
         // uploadToFirebase([업로드collection경로],[업로드document경로(자동ID로할꺼면null)],업로드할 내용 hashmap)
@@ -231,8 +237,31 @@ const Createpost = () => {
           uid: user.uid,
           post: postText,
         }
+        const imageHashMap = {
+          title: title,
+          createdAt: new Date(),
+          author: username,
+          files: await uploadFiles(),
+          uid: user.uid,
+          post: postText,
+          thumbnail: thumbnailURL,
+        }
+        let uploadToPhoto = false
+        for (let i = 0; i < lists.length; i++){
+          if (lists[i]==="photo")
+            uploadToPhoto = true
+        }
+        if (uploadToPhoto) {
+          if (imageHashMap.thumbnail === "") {
+            alert("포토갤러리에는 적어도 1개 이상의 사진이 업로드되어야합니다!")
+            return;
+          }
+        }
         for (let i = 0; i < lists.length; i++) {
-          db.collection(lists[i]).add(postHashMap)
+          if (lists[i] === "photo") 
+              db.collection("photo").add(imageHashMap)
+          else
+            db.collection(lists[i]).add(postHashMap)
         }
         setTitle("")
         setFileList([])
@@ -262,7 +291,7 @@ const Createpost = () => {
           for (let i = 0; i < imgsURL.length; i++) {
             const imgsURLSplit = imgsURL[i].split("URLSTARTPOINT")
             if (newImgHTML.includes(imgsURLSplit[0])) {
-              text = text.replace(newImgHTML, `<img src="${imgsURLSplit[1]}"`)
+              text = text.replace(newImgHTML, `<img src="${imgsURLSplit[1]}" alt="${imgsURLSplit[0]}"`)
               text = text.replace('&gt;image', '>')
             }
           }

@@ -3,7 +3,8 @@
   margin-left: 8px;
   font-size: 20px;
   /* width: 100%; */
-  height: min-content
+  height: min-content;
+  word-break: keep-all;
 }
 .postAuthor{
   margin-top: -10px;
