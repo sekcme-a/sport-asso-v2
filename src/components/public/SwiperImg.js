@@ -1,7 +1,8 @@
-import React from "react"
+import React, {useEffect, useState} from "react"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from "next/image"
 import Link from "next/link"
+import { firestore as db } from "src/components/firebase"
 
 import SwiperCore, {
   EffectCoverflow,Pagination, Loop, Autoplay
@@ -10,6 +11,26 @@ import SwiperCore, {
 SwiperCore.use([EffectCoverflow,Pagination,Loop,Autoplay]);
 
 const SwiperImg = () => {
+  const [imgList, setImgList] = useState([])
+  useEffect(async () => {
+    let temp = [];
+    const fetchedList = await (db.collection("photo")
+        .orderBy("createdAt", "desc")
+      .limit(12))
+    fetchedList.get().then((data) => {
+      data.forEach((doc) => {
+        temp = [
+          ...temp,
+          {
+            url: doc.data().thumbnail,
+            name: doc.data().title,
+            id: doc.id,
+          }
+        ]
+      })
+      setImgList(temp)
+    })
+  },[])
   return (
     <div className="swiperImg">
       <div className="swiperImg-info">
@@ -19,35 +40,29 @@ const SwiperImg = () => {
         </Link>
       </div>
       <div className="swiperImg-container">
-        <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} slidesPerView={'auto'} coverflowEffect={{
-          "rotate": 20,
-          "stretch": 0,
-          "depth": 200,
-          "modifier": 1,
-          "slideShadows": true,
-        }} pagination={false} autoplay={{
-          "delay":2500, "disableOnInteraction": false
-        }} loop={true} className="mySwiper">
-          {/* <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-1.jpg" /></SwiperSlide><SwiperSlide><img src="https://swiperjs.com/demos/images/nature-2.jpg" /></SwiperSlide><SwiperSlide><img src="https://swiperjs.com/demos/images/nature-3.jpg" /></SwiperSlide><SwiperSlide><img src="https://swiperjs.com/demos/images/nature-4.jpg" /></SwiperSlide><SwiperSlide><img src="https://swiperjs.com/demos/images/nature-5.jpg" /></SwiperSlide><SwiperSlide><img src="https://swiperjs.com/demos/images/nature-6.jpg" /></SwiperSlide><SwiperSlide><img src="https://swiperjs.com/demos/images/nature-7.jpg" /></SwiperSlide><SwiperSlide><img src="https://swiperjs.com/demos/images/nature-8.jpg" /></SwiperSlide><SwiperSlide><img src="https://swiperjs.com/demos/images/nature-9.jpg" /></SwiperSlide> */}
-          {/* <SwiperSlide><Image
-              src="https://swiperjs.com/demos/images/nature-1.jpg"
-              height={300}
-              width={300}
-              alt="대한생활체육회 로고"
-            /></SwiperSlide>
-          <SwiperSlide><Image
-              src="https://swiperjs.com/demos/images/nature-2.jpg"
-              height={300}
-              width={300}
-              alt="대한생활체육회 로고"
-            /></SwiperSlide> */}
-          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-1.jpg" alt="자연이미지"/></SwiperSlide>
-          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="자연이미지"/></SwiperSlide>
-          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-3.jpg" alt="자연이미지"/></SwiperSlide>
-          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-4.jpg" alt="자연이미지"/></SwiperSlide>
-          <SwiperSlide><img src="https://swiperjs.com/demos/images/nature-5.jpg" alt="자연이미지"/></SwiperSlide>
-          
-        </Swiper>
+        {imgList.length!==0 &&
+          <Swiper effect={'coverflow'} grabCursor={true} centeredSlides={true} slidesPerView={'auto'} coverflowEffect={{
+            "rotate": 20,
+            "stretch": 0,
+            "depth": 200,
+            "modifier": 1,
+            "slideShadows": true,
+          }} pagination={false} autoplay={{
+            "delay": 2500, "disableOnInteraction": false
+          }} loop={true} className="mySwiper">
+            {imgList.map((data, index) => {
+              return (
+                <SwiperSlide>
+                  <Link href='/article/[filename]/[id]' as={`/article/photo/${data.id}`}>
+                    <div className="SwiperImgContainer">
+                      <img src={data.url} key={index} alt={data.name} />
+                    </div>
+                  </Link>
+                </SwiperSlide>
+              )
+            })}
+          </Swiper>
+        }
       </div>
     </div>
   )
