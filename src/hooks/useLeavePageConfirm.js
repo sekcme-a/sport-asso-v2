@@ -13,7 +13,6 @@ export const useLeavePageConfirm = (
       if (isConfirm && !window.confirm(message)) {
         throw "Route Canceled";
       }
-      console.log("here")
     };
 
     Router.events.on("routeChangeStart", handler);

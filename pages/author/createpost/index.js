@@ -231,7 +231,6 @@ const Createpost = () => {
           uid: user.uid,
           post: postText,
         }
-        console.log(postHashMap)
         for (let i = 0; i < lists.length; i++) {
           db.collection(lists[i]).add(postHashMap)
         }

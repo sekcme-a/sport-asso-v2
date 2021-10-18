@@ -42,8 +42,6 @@ const Status = () => {
         result += ", "
     }
     result += ")"
-    console.log(result);
-    console.log("asdf")
     return result;
   }
 

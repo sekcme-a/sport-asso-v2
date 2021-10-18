@@ -39,7 +39,6 @@ function MyApp({ Component, pageProps }) {
   },[])
   return (
     <UserContext.Provider value={userData}>
-      {console.log(userData)}
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>

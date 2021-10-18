@@ -19,10 +19,6 @@ export const uploadToFirebase = (colList, docList, data) => {
         for (let i = 0; i < col.length; i++)
           db.collection(col[i]).add(data)
       })
-      // for (let i = 0; i < colList.length; i++) {
-      //   console.log(`here${colList[i]}`)
-      //   db.collection(colList[i]).add(data)
-      // }
     } else {
       for (let i = 0; i < colList.length; i++) {
         db.collection(colList[i]).doc(docList).set(data)

@@ -65,7 +65,6 @@ const SetName = () => {
       if (username.length >= 3) {
         const ref = firestore.doc(`usernames/${username}`);
         const { exists } = await ref.get();
-        console.log('Firestore read executed!');
         setIsValid(!exists);
         if(!exists)
           alert("사용가능한 닉네임입니다!")

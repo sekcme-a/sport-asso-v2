@@ -47,14 +47,6 @@
 
 // const QuillPage = (props) => {
 
-//   // const onChange = (notes) => {
-//   //   let getNote;
-//   //   getNote = notes.replace(/image&lt;/g,'<')
-//   //   getNote = getNote.replace(/&gt;image/g,'>')
-//   //   setPost(getNote)
-//   //   console.log(getNote)
-//   // }
-
 //   const onChange = (notes) => {
 //     props.setTextData(notes)
 //   }

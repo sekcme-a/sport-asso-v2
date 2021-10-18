@@ -64,7 +64,7 @@ const Group = () => {
               {slug === "media" && <Media />}
               {slug === "photo" && <Photo />}
               {slug === "reference" && <Reference />}
-              {/* <LoadPost folderName={cusSlug} page={page}/> */}
+              <LoadPost folderName={cusSlug} page={page}/>
             </div>
           </div>
           <NavbarVertical loc={title} />

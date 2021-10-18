@@ -1,0 +1,70 @@
+.postTitle{
+  margin-top:20px;
+  margin-left: 8px;
+  font-size: 20px;
+  /* width: 100%; */
+  height: min-content
+}
+.postAuthor{
+  margin-top: -10px;
+  width: 100%;
+  margin-left: 8px;
+  padding-bottom: 5px;
+  height: min-content;
+  border-bottom: 1px dotted #333;
+}
+.fileContainer{
+  font-family: 'NanumSquareRound',
+  sans-serif;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+}
+.fileContainer p{
+  margin-left: 8px;
+  font-size: 13px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: -10px;
+}
+.fileContainer li{
+  list-style: none;
+  border: 1px solid rgba(102, 102, 102, 0.288);
+  border-radius: 2px;
+  margin-left: 8px;
+  width: 95%;
+  align-items: center;
+  height: min-content;
+  font-size: 13px;
+  cursor: pointer;
+  transition: .5s;
+  margin-top: 7px;
+}
+.fileContainer li:hover{
+  background-color: rgba(102, 102, 102, 0.488);
+}
+.downloadIcon{
+  font-size: 19px;
+  margin-bottom: -5px;
+  color: #555;
+}
+.buttonContainer{
+  display:flex;
+  justify-content:end;
+  border-bottom: 1px dotted #333;
+}
+
+.button{
+  cursor: pointer;
+  background-color: #663cca;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 13px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: 600;
+}
+.button:hover{
+  background-color: #460dca;
+}

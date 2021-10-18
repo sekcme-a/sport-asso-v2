@@ -9,7 +9,7 @@ const LoadPost = (props) => {
   let tempData = [];
   useEffect(async () => {
     setListData(tempData)
-    if (props.page === 1 && props.folderName !== "" ) {
+    if (props.page === 1 && props.folderName) {
       fetchedList = await (db.collection(props.folderName)
         .orderBy("createdAt", "desc")
         .limit(12))
@@ -39,7 +39,6 @@ const LoadPost = (props) => {
   return (
     <ul className={style.noticeContainer}>
       {listData.map((item, index) => {
-        // console.log(item.title)
         return (
           <Link key={index} href='/article/[filename]/[id]'as={`/article/${props.folderName}/${item.id}`}>
             <li className={style.noticeTable}>
