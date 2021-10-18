@@ -135,7 +135,7 @@ const ShowArticle = () => {
               <h3 className="menu-result">{postTitle}</h3>
               <div className="menu-border"></div>
             </div> */}
-            <div className="content">
+            <div className={`content ${style.articleContainer}`}>
               <h4 className={style.postTitle}>{postTitle}</h4>
               <h6 className={style.postAuthor}>{author} | {createdAt}</h6>
               {hasPostFile && (

@@ -65,7 +65,18 @@
   margin-bottom: 10px;
   color: white;
   font-weight: 600;
+  margin-right: 12px;
 }
 .button:hover{
   background-color: #460dca;
+}
+
+@media (max-width: 480px) {
+  .postTitle {
+    margin-left: 10px;
+  }
+  .articleContainer img{
+    width: 90%;
+    height: 90%;
+  } 
 }
