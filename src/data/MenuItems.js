@@ -22,8 +22,15 @@ export const MenuItems = [
   {
     type: "sub",
     title: "체육회소개",
-    subtitle: '설립목적,연혁',
+    subtitle: '설립목적',
     path: '/info/purpose',
+    highlight: "",
+  },
+  {
+    type: "sub",
+    title: "체육회소개",
+    subtitle: '연혁',
+    path: '/info/timeline',
     highlight: "",
   },
   {

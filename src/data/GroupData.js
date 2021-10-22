@@ -30,6 +30,7 @@ export const GroupData = [
   },
   {
     groupName: "강원도체육회",
+    img: "dbsdydgh.png",
     phone: "-",
     leader: "윤용호",
     titleData: ["전국체육회"],

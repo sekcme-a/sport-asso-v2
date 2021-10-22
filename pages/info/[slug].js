@@ -8,6 +8,7 @@ import Purpose from "src/components/info/Purpose"
 import Chart from "src/components/info/Chart"
 import Status from "src/components/info/Status"
 import Where from "src/components/info/Where"
+import Timeline from "src/components/info/Timeline"
 
 
 const Info = () => {
@@ -43,6 +44,7 @@ const Info = () => {
               {slug === "chart" && <Chart />}
               {slug === "status" && <Status />}
               {slug === "where" && <Where />}
+              {slug === "timeline" && <Timeline />}
             </div>
           </div>
           <NavbarVertical loc={title} />

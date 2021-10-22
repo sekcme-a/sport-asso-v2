@@ -39,6 +39,12 @@ export const StatusData = [
   },
   {
     spot: "부총재",
+    name: "정진국",
+    img: "/IDPhoto/wjdwlsrnr.png",
+    data: ["프로필 : 남북평화재단","경인 김포본부 공동대표"]
+  },
+  {
+    spot: "부총재",
     name: "서승원",
     img: "/IDPhoto/tjtmddnjs.png",
     data: ["프로필 : 투데이경인 대표이사","푸른환경21 회장"]
