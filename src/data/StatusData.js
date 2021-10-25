@@ -67,6 +67,30 @@ export const StatusData = [
     img: "/IDPhoto/dbckdgh.png",
     data: ["프로필 : 연세대학교체육회 이사","대한직장인체육회 부회장 역임"]
   },
+    {
+    spot: "부총재",
+    name: "송창익",
+    img: "/IDPhoto/thdckddlr.png",
+    data: ["프로필 : 한국새생명복지재단 이사장"]
+  },
+  {
+    spot: "부총재",
+    name: "김시훈",
+    img: "/IDPhoto/rlatlgns.png",
+    data: ["프로필 : 월드뉴스통신 대표이사"]
+  },
+  {
+    spot: "부총재",
+    name: "김완수",
+    img: "/IDPhoto/rladhkstn.png",
+    data: ["프로필 : 월드뉴스통신 회장"]
+  },
+  {
+    spot: "부총재",
+    name: "박천호",
+    img: "/IDPhoto/qkrcjsgh.png",
+    data: ["프로필 : 태평양 D&D 대표이사"]
+  },
   {
     spot: "부총재",
     name: "박춘옥",

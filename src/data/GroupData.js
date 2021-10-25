@@ -358,6 +358,15 @@ export const GroupData = [
     dataType: "SportsData",
   },
   {
+    groupName: "프리테니스협회",
+    img: "dlgPwn.png",
+    phone: "-",
+    leader: "이혜주",
+    titleData: ["협회"],
+    contentData: ["프리테니스협회"],
+    dataType: "SportsData",
+  },
+  {
     groupName: "태극민턴협회",
     img: "qkrrlqja.png",
     phone: "-",
