@@ -23,14 +23,15 @@ const Group = () => {
   const { user } = useContext(UserContext);
 
   const router = useRouter();
-  const { slug } = router.query;
+  const { ...slug } = router.query;
 
   useEffect(() => {
     MenuItems.forEach((item) => {
-      if (item.path === `/notice/${slug}`) {
+      if (item.path ===`/notice/${slug.subtitle}`) {
         setTitle(item.title)
         setSubtitle(item.subtitle)
-        setCusSlug(slug)
+        setCusSlug(slug.subtitle)
+        setPage(slug.page)
         return;
       }
     })
@@ -59,15 +60,15 @@ const Group = () => {
               <div className="menu-border"></div>
             </div>
             <div className="content">
-              {slug === "schedule" && <Schedule />}
-              {slug === "result" && <Result />}
-              {slug === "anouncement" && <Anouncement />}
-              {slug === "media" && <Media />}
-              {slug === "photo" && <Photo />}
-              {slug === "reference" && <Reference />}
-              {slug === "photo" ? (
+              {slug.subtitle === "schedule" && <Schedule />}
+              {slug.subtitle === "result" && <Result />}
+              {slug.subtitle === "anouncement" && <Anouncement />}
+              {slug.subtitle === "media" && <Media />}
+              {slug.subtitle === "photo" && <Photo />}
+              {slug.subtitle === "reference" && <Reference />}
+              {slug.subtitle === "photo" ? (
                   <LoadPhoto page={page}/>
-              ):(<LoadPost folderName={cusSlug} page={page}/>)}
+              ):(<LoadPost folderName={cusSlug} page={parseInt(page)}/>)}
             </div>
           </div>
           <NavbarVertical loc={title} />

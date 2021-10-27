@@ -62,12 +62,20 @@ const Navbar = () => {
                 </>
               ) : (
                 <>
-                    {titleClick && (selectedTitle === item.title && (item.type === "sub" &&
-                      <Link href={item.path}>
-                        <li key={index} className="mobile-nav-item" onClick={closeMobileMenu}>
-                          {item.subtitle}
-                        </li>
-                      </Link>
+                    {titleClick && (selectedTitle === item.title && (item.type === "sub" && (
+                      item.path.includes("notice") ?
+                        <Link href={"/notice/[subtitle]/[page]"} as={`${item.path}/1`}>
+                          <li key={index} className="mobile-nav-item" onClick={closeMobileMenu}>
+                            {item.subtitle}
+                          </li>
+                        </Link>
+                        :
+                        <Link href={item.path} passHref>
+                          <li key={index} className="mobile-nav-item" onClick={closeMobileMenu}>
+                            {item.subtitle}
+                          </li>
+                        </Link>
+                    )
                   ))}
                 </>
               )

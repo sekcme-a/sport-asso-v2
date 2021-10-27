@@ -35,7 +35,7 @@ const SwiperImg = () => {
     <div className="swiperImg">
       <div className="swiperImg-info">
         <h4>PHOTO GALLERY</h4>
-        <Link href="/notice/photo">
+        <Link href="/notice/[subtitle]/[page]" as="/notice/photo/1">
           <div className="button">더보기</div>
         </Link>
       </div>

@@ -2,18 +2,21 @@ import React, {useEffect, useState} from 'react'
 import style from "styles/notice/loadPhoto.module.css"
 import { firestore as db } from "src/components/firebase"
 import Link from "next/link"
-import Image from "next/image"
 
 const LoadPhoto = (props) => {
   const [listData, setListData] = useState([])
+  const [pg, setPg] = useState(1)
   let fetchedList;
+  let prevList;
   let tempData = [];
   useEffect(async () => {
-    setListData(tempData)
-    if (props.page === 1) {
+    setPg(parseInt(props.page))
+  },[props])
+  useEffect(async () => {
+    if (pg === 1) {
       fetchedList = await (db.collection("photo")
         .orderBy("createdAt", "desc")
-        .limit(12))
+        .limit(6))
       if (fetchedList !== undefined) {
         fetchedList.get().then((data) => {
           data.forEach((doc) => {
@@ -31,7 +34,38 @@ const LoadPhoto = (props) => {
         })
       }
     }
-  },[props])
+    if(pg!==1){
+      prevList = await (db.collection("photo")
+        .orderBy("createdAt", "desc")
+        .limit(6 * (pg - 1)))
+      
+      await prevList.get().then(async (snap) => {
+        let lastVis = snap.docs[snap.docs.length - 1]
+
+        fetchedList = await db.collection("photo")
+          .orderBy("createdAt","desc")
+          .startAfter(lastVis)
+          .limit(6)
+      })
+
+      if (fetchedList !== undefined) {
+        fetchedList.get().then((data) => {
+          data.forEach((doc) => {
+            tempData = ([
+              ...tempData,
+              {
+                title: doc.data().title,
+                uid: doc.data().uid,
+                id: doc.id,
+                thumbnail: doc.data().thumbnail
+              }
+            ])
+          })
+          setListData(tempData)
+        })
+      }
+    }
+  },[pg])
 
 
 
@@ -39,7 +73,7 @@ const LoadPhoto = (props) => {
     <ul className={style.imageContainer}>
       {listData.map((item, index) => {
         return (
-          <Link key={index} href='/article/[filename]/[id]' as={`/article/photo/${item.id}`}>
+          <Link key={index} href='/article/[filename]/[page]/[id]' as={`/article/photo/${pg}/${item.id}`}>
             <li className={style.imgTable}>
               <div className={style.imgTitle}><h4>{item.title}</h4></div>
               {item.thumbnail && (

@@ -258,10 +258,12 @@ const Createpost = () => {
           }
         }
         for (let i = 0; i < lists.length; i++) {
-          if (lists[i] === "photo") 
-              db.collection("photo").add(imageHashMap)
-          else
+          if (lists[i] === "photo") {
+            db.collection("photo").add(imageHashMap)
+          }
+          else {
             db.collection(lists[i]).add(postHashMap)
+          }
         }
         setTitle("")
         setFileList([])

@@ -159,7 +159,7 @@ const ShowArticle = () => {
               
             </div>
             <div className={style.buttonContainer}>
-              <Link href={`/notice/${data.filename}`}>
+              <Link href="/notice/[subtitle]/[page]"as={`/notice/${data.filename}/${data.page}`}>
                 <div className={style.button} >돌아가기</div>
               </Link>
             </div>

@@ -26,13 +26,13 @@ export const MenuItems = [
     path: '/info/purpose',
     highlight: "",
   },
-  {
-    type: "sub",
-    title: "체육회소개",
-    subtitle: '연혁',
-    path: '/info/timeline',
-    highlight: "",
-  },
+  // {
+  //   type: "sub",
+  //   title: "체육회소개",
+  //   subtitle: '연혁',
+  //   path: '/info/timeline',
+  //   highlight: "",
+  // },
   {
     type: "sub",
     title: "체육회소개",

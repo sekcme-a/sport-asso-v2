@@ -13,19 +13,33 @@ function DropdownPc(props) {
           return (
             <>
             {(item.title === props.mainTitle) && ((item.type === "sub") && (
-              <li key={index}>
-                <Link
-                  className="dropdown-link"
-                  href={item.path}
-                  as={item.path}
-                  passHref
-                  onClick={() => setClick(false)}
-                >
-                    <div className="dropdown-link">
-                      {item.subtitle}
-                    </div>
-                </Link>
-              </li>
+                item.path.includes("notice") ?
+                  <li key={index}>
+                    <Link
+                      className="dropdown-link"
+                      href={"/notice/[subtitle]/[page]"}
+                      as={`${item.path}/1`}
+                      passHref
+                      onClick={() => setClick(false)}
+                    >
+                      <div className="dropdown-link">
+                        {item.subtitle}
+                      </div>
+                    </Link>
+                  </li>
+                  :
+                  <li key={index}>
+                    <Link
+                      className="dropdown-link"
+                      href={item.path}
+                      passHref
+                      onClick={() => setClick(false)}
+                    >
+                      <div className="dropdown-link">
+                        {item.subtitle}
+                      </div>
+                    </Link>
+                  </li>
             ))}
             
             </>
