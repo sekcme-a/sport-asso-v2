@@ -36,7 +36,11 @@ const NavbarVertical = (props) => {
                 {(item.title === props.loc) && item.subtitle && (
                   <div key={index} className="navItem">
                     <div className="navLink">
-                      <Link href={"/notice/[subtitle]/[page]"} as={`${item.path}/1`} >{item.subtitle}</Link>
+                      {item.path.includes("notice") ?
+                        <Link href={"/notice/[subtitle]/[page]"} as={`${item.path}/1`} >{item.subtitle}</Link>
+                        :
+                        <Link href={item.path}>{item.subtitle}</Link>
+                      }
                     </div>
                   </div>
                 )}
