@@ -16,11 +16,11 @@ import LoadPhoto from "src/components/notice/LoadPhoto"
 const Group = () => {
   const [title, setTitle] = useState("")
   const [subtitle, setSubtitle] = useState("")
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+  const [isAdminOrAuthorLoggedIn, setIsAdminOrAuthorLoggedIn] = useState(false)
   const [cusSlug, setCusSlug] = useState("")
   const [page, setPage] = useState(1)
 
-  const { user } = useContext(UserContext);
+  const { user, userrole } = useContext(UserContext);
 
   const router = useRouter();
   const { ...slug } = router.query;
@@ -38,11 +38,11 @@ const Group = () => {
   }, [slug])
   
   useEffect(() => {
-    if (user) {
-      setIsUserLoggedIn(true)
+    if (user && (userrole==="admin" || userrole==="author")) {
+      setIsAdminOrAuthorLoggedIn(true)
     } else
-      setIsUserLoggedIn(false)
-  }, [user])
+      setIsAdminOrAuthorLoggedIn(false)
+  }, [userrole])
   
   const onAddPostClick = () => {
     router.push(`/author/createpost`)
@@ -56,7 +56,7 @@ const Group = () => {
           <div className="content-container">
             <div className="menu-container">
               <h3 className="menu-result">{subtitle}</h3>
-                {isUserLoggedIn && <div className="add-post" onClick={onAddPostClick}>글 작성</div>}
+                {isAdminOrAuthorLoggedIn && <div className="add-post" onClick={onAddPostClick}>글 작성</div>}
               <div className="menu-border"></div>
             </div>
             <div className="content">

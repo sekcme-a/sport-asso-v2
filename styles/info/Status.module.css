@@ -15,10 +15,11 @@
 }
 
 .statusResultContainer {
-  margin-top: 35px;
+  margin-top: 0px;
 }
 .statusResultContainer h5{
   margin-top: 8px;
+  word-break: keep-all;
 }
 
 .statusContainer {

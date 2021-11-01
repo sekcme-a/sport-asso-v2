@@ -16,7 +16,7 @@ const LoadPhoto = (props) => {
     if (pg === 1) {
       fetchedList = await (db.collection("photo")
         .orderBy("createdAt", "desc")
-        .limit(6))
+        .limit(12))
       if (fetchedList !== undefined) {
         fetchedList.get().then((data) => {
           data.forEach((doc) => {

@@ -56,8 +56,9 @@
 
 .content-container .content{
     height: 100%;
-    width: 100%;
+    width: calc(100%-5px);
     display: flex;
     /* justify-content: center; */
     flex-wrap: wrap;
+    margin-left: 5px;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react"
+import React, { useEffect, useContext, useState} from "react"
 import Header from "src/components/public/Header"
 import { MenuItems } from "data/MenuItems"
 import NavbarVertical from "src/components/public/NavbarVertical"
@@ -9,11 +9,14 @@ import Chart from "src/components/info/Chart"
 import Status from "src/components/info/Status"
 import Where from "src/components/info/Where"
 import Timeline from "src/components/info/Timeline"
+import { UserContext } from "src/context";
 
 
 const Info = () => {
   const [title, setTitle] = useState("")
   const [subtitle, setSubtitle] = useState("")
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false)
+  const { user, userrole } = useContext(UserContext);
 
   const router = useRouter();
   const { slug } = router.query;
@@ -26,7 +29,18 @@ const Info = () => {
         return;
       }
     })
-  },[slug])
+  }, [slug])
+  
+  useEffect(() => {
+    if (user && userrole==="admin") {
+      setIsAdminLoggedIn(true)
+    } else
+      setIsAdminLoggedIn(false)
+  }, [userrole])
+
+  const onStatusClick = () => {
+    router.push(`/admin/setting/status`)
+  }
 
   return (
     <>
@@ -36,6 +50,11 @@ const Info = () => {
           <div className="content-container">
             <div className="menu-container">
               <h3 className="menu-result">{subtitle}</h3>
+              {isAdminLoggedIn &&(
+                <>
+                  {slug === "status" && <div className="add-post" onClick={onStatusClick}>편집</div>}
+                </>
+              )}
               <div className="menu-border"></div>
             </div>
             <div className="content">

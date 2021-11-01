@@ -27,12 +27,6 @@ export const StatusData = [
   },
   {
     spot: "부총재",
-    name: "강석만",
-    img: "/IDPhoto/rkdtjraks.png",
-    data: ["프로필 : 화인퍼시스 대표","대한직장인체육 볼링협회장 초대회장"]
-  },
-  {
-    spot: "부총재",
     name: "권용철",
     img: "/IDPhoto/rnjsdydcjf.png",
     data: ["프로필 : (주)Global James Group 회장","(주)제임스통상 대표"]

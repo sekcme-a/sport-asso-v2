@@ -97,7 +97,6 @@ const LoginUI = () => {
   //로그인
   const onLoginClick = async (event) => {
     event.preventDefault();
-    // if (loginId === "admin0913@naver.com" && loginPassword === "gustj010913@")
   }
 
   useEffect(() => {
@@ -145,13 +144,13 @@ const LoginUI = () => {
                 <form action="#">
                   <div className="input-boxes">
                     <div className="input-box">
-                      <i className="fas fa-envelope">
+                      <i>
                         <EmailIcon />
                       </i>
                       <input type="text" onChange={onChange} name="loginId" placeholder="이메일을 입력하세요" required />
                     </div>
                     <div className="input-box">
-                      <i className="fas fa-lock"><LockIcon /></i>
+                      <i><LockIcon /></i>
                       <input type="password" onChange={onChange} name="loginPassword" placeholder="비밀번호를 입력하세요" required />
                     </div>
                     <div className="text"><Link href="/login">비밀번호를 잊으셨나요?</Link></div> {/*미완성*/}
@@ -171,21 +170,21 @@ const LoginUI = () => {
                 <form action="#">
                   <div className="input-boxes">
                     <div className="input-box">
-                      <i className="fas fa-user"><PersonIcon /></i>
+                      <i><PersonIcon /></i>
                       <input onChange={onChange} name="name" type="text" placeholder="이름을 입력하세요" required />
                     </div>
                     <div className="input-box">
-                      <i className="fas fa-envelope"><EmailIcon /></i>
+                      <i><EmailIcon /></i>
                       <input onChange={onChange} name="id" type="text" placeholder="이메일을 입력하세요" required />
                     </div>
                     <div className="input-box">
-                      <i className="fas fa-lock">
+                      <i>
                         <LockIcon />
                       </i>
                       <input onChange={onChange} name="password" type="password" placeholder="비밀번호를 입력하세요" required />
                     </div>
                     <div className="input-box">
-                      <i className="fas fa-lock"><LockIcon /></i>
+                      <i><LockIcon /></i>
                       <input onChange={onChange} name="confirmPassword" type="password" placeholder="비밀번호 재확인" required />
                     </div>
                     {/* <div className="input-box">

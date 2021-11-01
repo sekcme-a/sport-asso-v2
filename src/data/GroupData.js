@@ -174,18 +174,18 @@ export const GroupData = [
   //---------------------SanhaData------------
     {
     groupName: "유,청소년체육회",
-    img:"tjtkddhr.png",
+    img:"rladmlwhd.png",
     phone: "-",
-    leader: "서상옥",
+    leader: "김의종",
     titleData: ["산하단체"],
     contentData: ["유,청소년체육회"],
     dataType: "SanhaData",
   },
     {
     groupName: "실버시니어체육회",
-    img:"rlarlfans.png",
+    img:"rkdtjraks.png",
     phone: "-",
-    leader: "김길문",
+    leader: "강석만",
     titleData: ["산하단체"],
     contentData: ["실버시니어체육회"],
     dataType: "SanhaData",

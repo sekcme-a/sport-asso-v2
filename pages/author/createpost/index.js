@@ -63,6 +63,8 @@ const Createpost = () => {
 
   const [textData, setTextData] = useState("")
 
+  const router = useRouter();
+
   const onChange = (notes) => {
     setTextData(notes)
   }
@@ -271,6 +273,7 @@ const Createpost = () => {
         setTextData("")
         setImgHTML("")
         alert("업로드가 완료됬습니다!")
+        router.push(`/`)
       }
       else {
         alert("업로드할 위치를 정해주세요.")
@@ -342,38 +345,47 @@ const Createpost = () => {
 
   return (
     <div className="post-container">
-      <form name="post">
-        <div className="post-title">
-          제목 : <input type="text" name="title" value={title} onChange={onTitleChange} placeholder="제목을 입력하세요" required />
-        </div>
-        <h4>업로드 위치</h4>
-        {MenuItems.map((item, index) => {
-          if (item.path) {
-            if (item.path.includes("notice")) {
-              return (
-                <div>
-                    <input key={index} onChange={e=>{onCheckboxChange(e.currentTarget.checked,item.path)}} type="checkbox" name="postTo" value={item.subtitle} />{item.subtitle}<br />
-                </div>
-              )
-            }
-          }
-        })}
-        첨부파일 : <input type="file" name="selectedFile[]" onChange={onFileChange} /><br />
-        {fileList && fileList.map((item, index) => {
-          if (item !== undefined) {
-            return (
-              <h4 key={index} className="file-list">{item.file.name}<h4 className="file-list-delete" onClick={() => { onFileListDeleteClick(item.file.name) }}>X</h4></h4>
-            )
-          }
-        })}
-        사진삽입 : <input type="file" name="selectedImg[]" onChange={onImgChange} accept="image/*"/><br />
-        <textarea name="imgURL" value={imgHTML}cols="60" rows="10" readOnly ></textarea><br/>
-        <input type="submit" value="업로드" onClick={onSubmit}></input>
-      </form>
-      <QuillNoSSRWrapper onChange={onChange} modules={modules} formats={formats} theme="snow" />
-      미리보기
-      <div className="post-preview" onClick={() => { onPreviewClick() }}><CachedIcon /></div>
-      <QuillNoSSRWrapper value={post} readOnly={true} theme="bubble" />
+      {userrole === "admin" || userrole === "author" ? (
+        <>
+          <form name="post">
+            <div className="post-title">
+              제목 : <input type="text" name="title" value={title} onChange={onTitleChange} placeholder="제목을 입력하세요" required />
+            </div>
+            <h4>업로드 위치</h4>
+            {MenuItems.map((item, index) => {
+              if (item.path) {
+                if (item.path.includes("notice")) {
+                  return (
+                    <div>
+                        <input key={index} onChange={e=>{onCheckboxChange(e.currentTarget.checked,item.path)}} type="checkbox" name="postTo" value={item.subtitle} />{item.subtitle}<br />
+                    </div>
+                  )
+                }
+              }
+            })}
+            첨부파일 : <input type="file" name="selectedFile[]" onChange={onFileChange} /><br />
+            {fileList && fileList.map((item, index) => {
+              if (item !== undefined) {
+                return (
+                  <h4 key={index} className="file-list">{item.file.name}<h4 className="file-list-delete" onClick={() => { onFileListDeleteClick(item.file.name) }}>X</h4></h4>
+                )
+              }
+            })}
+            사진삽입 : <input type="file" name="selectedImg[]" onChange={onImgChange} accept="image/*"/><br />
+            <textarea name="imgURL" value={imgHTML}cols="60" rows="10" readOnly ></textarea><br/>
+            <input type="submit" value="업로드" onClick={onSubmit}></input>
+          </form>
+          <QuillNoSSRWrapper onChange={onChange} modules={modules} formats={formats} theme="snow" />
+          미리보기
+          <div className="post-preview" onClick={() => { onPreviewClick() }}><CachedIcon /></div>
+          <QuillNoSSRWrapper value={post} readOnly={true} theme="bubble" />
+        </>
+      ) : (
+        <>
+          <h4>권한없음</h4>
+          {alert("이 기능을 사용할 권한이 없습니다")}
+        </>
+      )}
     </div>
   )
 }

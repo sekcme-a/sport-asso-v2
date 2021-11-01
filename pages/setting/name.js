@@ -21,11 +21,13 @@ const SetName = () => {
       // Create refs for both documents
       const userDoc = firestore.doc(`users/${user.uid}`);
       const usernameDoc = firestore.doc(`usernames/${formValue}`);
+      const userrole = firestore.doc('userrole/user')
 
       // Commit both docs together as a batch write.
       const batch = firestore.batch();
       batch.set(userDoc, { username: formValue });
       batch.set(usernameDoc, { uid: user.uid });
+      batch.set(userrole, {userrole: "user"})
 
       await batch.commit();
     } else if (formValue.length < 3) {
