@@ -152,6 +152,12 @@ export const StatusData = [
     data: ["프로필 : 전남신체장애인복지회","광양시지부장"]
   },
   {
+    spot: "중앙이사",
+    name: "허홍천",
+    img: "/IDPhoto/gjghdcjs.png",
+    data: ["프로필 : 한국 귀환 동포(중국) 청년연합회 회장"]
+  },
+  {
     spot: "언론위원장",
     name: "김성진",
     img: "/IDPhoto/rlatjdwls.png",
