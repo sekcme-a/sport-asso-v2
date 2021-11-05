@@ -158,6 +158,12 @@ export const StatusData = [
     data: ["프로필 : 한국 귀환 동포(중국) 청년연합회 회장"]
   },
   {
+    spot: "사무국장",
+    name: "박영애",
+    img: "/IDPhoto/qkrduddo.jpg",
+    data: [""]
+  },
+  {
     spot: "언론위원장",
     name: "김성진",
     img: "/IDPhoto/rlatjdwls.png",
