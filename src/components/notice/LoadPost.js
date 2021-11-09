@@ -39,7 +39,7 @@ const LoadPost = (props) => {
               console.log(listData)
             })
           }
-        },450)
+        },0)
       }
       else if (props.page !== 1) {
         prevList = (db.collection(props.folderName)

@@ -6,41 +6,35 @@ import Pagination from "src/components/notice/Pagination"
 
 const LoadPhoto = (props) => {
   const [listData, setListData] = useState([])
-  const [pg, setPg] = useState(1)
   let fetchedList;
   let prevList;
   let tempData = [];
   useEffect(async () => {
-    setPg(parseInt(props.page))
-  },[props])
-  useEffect(async () => {
-    if (pg === 1) {
-      setTimeout(async()=>{
-        fetchedList = await (db.collection("photo")
-          .orderBy("createdAt", "desc")
-          .limit(9))
-        if (fetchedList !== undefined) {
-          fetchedList.get().then((data) => {
-            data.forEach((doc) => {
-              tempData = ([
-                ...tempData,
-                {
-                  title: doc.data().title,
-                  uid: doc.data().uid,
-                  id: doc.id,
-                  thumbnail: doc.data().thumbnail
-                }
-              ])
-            })
-            setListData(tempData)
+    if (props.page === 1) {
+      fetchedList = await (db.collection("photo")
+        .orderBy("createdAt", "desc")
+        .limit(9))
+      if (fetchedList !== undefined) {
+        fetchedList.get().then((data) => {
+          data.forEach((doc) => {
+            tempData = ([
+              ...tempData,
+              {
+                title: doc.data().title,
+                uid: doc.data().uid,
+                id: doc.id,
+                thumbnail: doc.data().thumbnail
+              }
+            ])
           })
-        }
-      },450)
+          setListData(tempData)
+        })
+      }
     }
-    if(pg!==1){
+    if(props.page!==1){
       prevList = await (db.collection("photo")
         .orderBy("createdAt", "desc")
-        .limit(9 * (pg - 1)))
+        .limit(9 * (props.page - 1)))
       
       await prevList.get().then(async (snap) => {
         let lastVis = snap.docs[snap.docs.length - 1]
@@ -68,7 +62,7 @@ const LoadPhoto = (props) => {
         })
       }
     }
-  },[pg])
+  },[props.page])
 
 
 
@@ -77,7 +71,7 @@ const LoadPhoto = (props) => {
       <ul className={style.imageContainer}>
         {listData.map((item, index) => {
           return (
-            <Link key={index} href='/article/[filename]/[page]/[id]' as={`/article/photo/${pg}/${item.id}`}>
+            <Link key={index} href='/article/[filename]/[page]/[id]' as={`/article/photo/${props.page}/${item.id}`}>
               <li className={style.imgTable}>
                 <div className={style.imgTitle}><h4>{item.title}</h4></div>
                 {item.thumbnail && (
@@ -88,7 +82,7 @@ const LoadPhoto = (props) => {
           )
         })}
       </ul>
-      <Pagination docName="photo" page={pg} />
+      <Pagination docName="photo" page={props.page} />
     </>
   )
 }

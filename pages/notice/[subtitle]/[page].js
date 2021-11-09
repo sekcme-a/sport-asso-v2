@@ -69,8 +69,8 @@ const Group = () => {
               {slug.subtitle === "photo" && <Photo />}
               {slug.subtitle === "reference" && <Reference />}
               {slug.subtitle === "photo" ? (
-                <LoadPhoto page={page}/>
-              ):(cusSlug && <LoadPost folderName={cusSlug} page={parseInt(page)}/>)}
+                <LoadPhoto page={parseInt(slug.page)}/>
+              ):(cusSlug && <LoadPost folderName={slug.subtitle} page={parseInt(slug.page)}/>)}
             </div>
           </div>
           <NavbarVertical loc={title} />
