@@ -1,0 +1,29 @@
+.pagination{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.currentPage{
+  background-color: rgb(58, 82, 190) !important;
+  color: white;
+}
+.page{
+  background-color: rgba(153, 153, 153, 0.418);
+  width: 22px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+  font-family: 'NanumSquareRound',
+  sans-serif;
+  cursor: pointer;
+  border: 1px solid #666;
+  border-radius: 2px;
+  transition: .5s;
+}
+.page:hover{
+  background-color: rgba(153, 153, 153, 0.842);
+}

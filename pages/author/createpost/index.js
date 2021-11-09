@@ -9,6 +9,8 @@ import CachedIcon from '@mui/icons-material/Cached';
 import { FileUpload } from "src/firebase/FileUpload"
 import { firestore as db } from "src/components/firebase"
 import { uploadToFirebase } from "src/firebase/uploadToFirebase"
+import { AddCommentOutlined } from "@mui/icons-material"
+import { controlPostCount } from "src/firebase/controlPostCount"
 // import { useBeforeunload } from "react-beforeunload"
 
 const QuillNoSSRWrapper = dynamic(import('react-quill'), {
@@ -62,7 +64,6 @@ const Createpost = () => {
   const [imgList, setImgList] = useState([])
 
   const [textData, setTextData] = useState("")
-
   const router = useRouter();
 
   const onChange = (notes) => {
@@ -262,9 +263,11 @@ const Createpost = () => {
         for (let i = 0; i < lists.length; i++) {
           if (lists[i] === "photo") {
             db.collection("photo").add(imageHashMap)
+            controlPostCount("photo","add")
           }
           else {
             db.collection(lists[i]).add(postHashMap)
+            controlPostCount(lists[i],"add")
           }
         }
         setTitle("")

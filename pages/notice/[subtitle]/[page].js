@@ -30,8 +30,10 @@ const Group = () => {
       if (item.path ===`/notice/${slug.subtitle}`) {
         setTitle(item.title)
         setSubtitle(item.subtitle)
-        setCusSlug(slug.subtitle)
-        setPage(slug.page)
+        if(cusSlug!==slug.subtitle)
+          setCusSlug(slug.subtitle)
+        if(page!==slug.page)
+          setPage(slug.page)
         return;
       }
     })
@@ -67,8 +69,8 @@ const Group = () => {
               {slug.subtitle === "photo" && <Photo />}
               {slug.subtitle === "reference" && <Reference />}
               {slug.subtitle === "photo" ? (
-                  <LoadPhoto page={page}/>
-              ):(<LoadPost folderName={cusSlug} page={parseInt(page)}/>)}
+                <LoadPhoto page={page}/>
+              ):(cusSlug && <LoadPost folderName={cusSlug} page={parseInt(page)}/>)}
             </div>
           </div>
           <NavbarVertical loc={title} />
