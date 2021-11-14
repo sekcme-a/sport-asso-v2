@@ -1,22 +1,54 @@
-import React from "react";
-import { StatusData } from "data/StatusData"
+import React, {useEffect, useState} from "react";
+import { firestore as db, storage } from "src/components/firebase"
 import style from "styles/info/Status.module.css"
 import Image from "next/image"
 import Head from "next/head"
 
-const Status = () => {
+const Status = (props) => {
   let title;
   let subtitle;
   let prevSpot; //직위
+  const [statusData, setStatusData] = useState([])
+  const [loading, setLoading] = useState(true)
+  // const [imgList, setImgList] = useState([])
 
+  useEffect(async () => {
+    if (props.data === undefined) {
+      await db.collection("data").doc("status").get().then(async (doc) => {
+        const res = JSON.parse(doc.data().data)
+        for (let i = 0; i < res.length; i++) {
+          await storage.ref(`status/${res[i].img}`).getDownloadURL().then((url) => {
+            res[i] = {
+              ...res[i],
+              url: url
+            }
+          })
+        }
+        setStatusData(res)
+        setLoading(false)
+      })
+    } else {
+      const res = props.data
+      for (let i = 0; i < res.length; i++) {
+          await storage.ref(`status/${res[i].img}`).getDownloadURL().then((url) => {
+            res[i] = {
+              ...res[i],
+              url: url
+            }
+          })
+        }
+      setStatusData(res)
+      setLoading(false)
+    }
+  },[props])
   //총원수 및 임원 수 구하기.
   const getTotal = () => {
     let spot = [];
     let number = [];
     let exist = false;
     let totalNumber = 0;
-    let result="총원";
-    StatusData.forEach((item) => {
+    let result = "총원";
+    statusData.forEach((item) => {
       exist = false;
       if (spot.length !== 0) {
         for (let i = 0; i < spot.length; i++){
@@ -45,6 +77,19 @@ const Status = () => {
     return result;
   }
 
+  const getImg = async (imgName) => {
+    storage.ref(`status/${imgName}`).getDownloadURL().then((url) => {
+      console.log(url)
+      return url
+    })
+    // return new Promise(async function (resolve, reject) {
+    //   await storage.ref(`status/${imgName}`).getDownloadURL().then((url) => {
+    //     resolve(url)
+    //   })
+    // })
+    // return "/asdf"
+  }
+
   return (
     <>
       <Head>
@@ -64,10 +109,12 @@ const Status = () => {
             </div>
             <div className={style.statusResultContainer}>
               <h3>대한생활체육회 임원 현황</h3>
+              {loading ? <h5>로딩중입니다...</h5> :
                 <h5>▶{getTotal()}</h5>
+              }
             </div>
             <div className={style.statusContainer}>
-              {StatusData.map((item, index) => {
+              {statusData.map((item, index) => {
                 return (
                   <>
                     {prevSpot !== item.spot && (
@@ -84,11 +131,12 @@ const Status = () => {
                             <div className={style.idPhoto}>
                               <Image
                               className="idPhoto"
-                              src={item.img}
+                              src={item.url}
                               height={200}
                               width={150}
-                              alt="증명사진"
+                              alt="사진"
                               />
+                              {/* <img className="idPhoto" src={`https://firebasestorage.googleapis.com/v0/b/sports-asso-v2.appspot.com/o/status%2Fansqudgml.png?alt=media&token=7336fd19-59e2-493b-9d74-c500f0afca38`} alt="사진"/> */}
                             </div>
                           </div>
                           <div className={style.idTextContainer}>
@@ -100,7 +148,11 @@ const Status = () => {
                                   {(text.includes("추가")) ? (<h6 key={index}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     {text.replace("추가 : ", "")}</h6>
                                   ) : (
-                                    <h6 key={index}>{text}</h6>
+                                    <>
+                                        {item.data[0] === text ? <h6 key={index}>{`프로필 : ${text}`}</h6>
+                                          : <h6 key={index}>{text}</h6>
+                                      }
+                                    </>
                                   )}
                                 </>
                               )

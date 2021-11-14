@@ -1,5 +1,5 @@
 module.exports = {
   images: {
-    domains:['swiperjs.com']
+    domains:['firebasestorage.googleapis.com','swiperjs.com']
   },
 }

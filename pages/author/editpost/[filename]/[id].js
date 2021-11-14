@@ -8,6 +8,7 @@ import CachedIcon from '@mui/icons-material/Cached';
 import { FileUpload } from "src/firebase/FileUpload"
 import { FileDelete } from "src/firebase/FileDelete"
 import { firestore as db } from "src/components/firebase"
+import { controlPostCount } from "src/firebase/controlPostCount"
 
 const QuillNoSSRWrapper = dynamic(import('react-quill'), {
   ssr: false,
@@ -406,6 +407,7 @@ const Editpost = () => {
       }
     })
     await db.collection(data.filename).doc(data.id).delete().then(() => {
+      controlPostCount(data.filename, "remove")
       alert("성공적으로 삭제되었습니다!")
       router.push(`/`)
     }).catch((e) => {
