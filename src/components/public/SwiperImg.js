@@ -53,7 +53,7 @@ const SwiperImg = () => {
             {imgList.map((data, index) => {
               return (
                 <SwiperSlide key={index}>
-                  <Link href='/article/[filename]/[id]' as={`/article/photo/${data.id}`}>
+                  <Link href='/article/[filename]/[page]/[id]' as={`/article/photo/1/${data.id}`}>
                     <div className="SwiperImgContainer">
                       <img src={data.url} alt={data.name} />
                     </div>

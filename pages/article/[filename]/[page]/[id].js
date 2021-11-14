@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import React, {useEffect, useState, useContext} from "react"
 import { MenuItems } from "data/MenuItems"
 import { useRouter } from "next/router"
 import Header from "src/components/public/Header"
@@ -9,6 +9,7 @@ import { firestore as db } from "src/components/firebase"
 import Link from "next/link"
 import dynamic from 'next/dynamic'
 import DownloadIcon from '@mui/icons-material/Download';
+import { UserContext } from "src/context";
 
 const QuillNoSSRWrapper = dynamic(import('react-quill'), {
   ssr: false,
@@ -66,6 +67,9 @@ const ShowArticle = () => {
   const [hasPostFile, setHasPostFile] = useState(false)
   const [author, setAuthor] = useState("")
   const [createdAt, setCreatedAt] = useState("")
+  const [authorUid, setAuthorUid] = useState("")
+
+  const { user, username, userrole } = useContext(UserContext)
 
   useEffect(async () => {
     setHasPostFile(false)
@@ -105,6 +109,7 @@ const ShowArticle = () => {
         // }
         setPostTitle(doc.data().title)
         setPostContent(doc.data().post)
+        setAuthorUid(doc.data().uid)
       })
     }
   }, [data.filename])
@@ -159,6 +164,11 @@ const ShowArticle = () => {
               
             </div>
             <div className={style.buttonContainer}>
+              {user && (authorUid === user.uid || userrole === "admin" )&&
+                <Link href="/author/editpost/[filename]/[id]" as={`/author/editpost/${data.filename}/${data.id}`}>
+                  <h4 className={`${style.button} ${style.edit}`}>편 집</h4>
+                </Link>
+              }
               <Link href="/notice/[subtitle]/[page]"as={`/notice/${data.filename}/${data.page}`}>
                 <div className={style.button} >돌아가기</div>
               </Link>

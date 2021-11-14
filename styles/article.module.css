@@ -14,6 +14,12 @@
   height: min-content;
   border-bottom: 1px dotted #333;
 }
+.edit {
+  width: 45px;
+  text-align: center;
+  font-size: 15px !important;
+  background-color: rgb(226, 57, 57) !important;
+}
 .fileContainer{
   font-family: 'NanumSquareRound',
   sans-serif;
@@ -40,6 +46,7 @@
   cursor: pointer;
   transition: .5s;
   margin-top: 7px;
+  margin-bottom: -7px;
 }
 .fileContainer li:hover{
   background-color: rgba(102, 102, 102, 0.488);
