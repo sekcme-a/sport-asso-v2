@@ -35,6 +35,9 @@ const Status = (props) => {
               ...res[i],
               url: url
             }
+          }).catch((e) => {
+            alert(`형식에 맞게 작성해주세요!\n${e}`)
+            console.log(e)
           })
         }
       setStatusData(res)
