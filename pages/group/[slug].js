@@ -1,15 +1,18 @@
-import React, { useEffect, useState} from "react"
+import React, { useEffect, useState, useContext} from "react"
 import Header from "src/components/public/Header"
 import { MenuItems } from "data/MenuItems"
 import NavbarVertical from "src/components/public/NavbarVertical"
 import { useRouter } from "next/router"
 import GroupTable from "src/components/group/Group"
 import Head from "next/head"
+import { UserContext } from "src/context";
+
 
 const Group = () => {
   const [title, setTitle] = useState("")
   const [subtitle, setSubtitle] = useState("")
-
+  const { user, userrole } = useContext(UserContext);
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false)
   const router = useRouter();
   const { slug } = router.query;
 
@@ -21,8 +24,18 @@ const Group = () => {
         return;
       }
     })
-  },[slug])
+  }, [slug])
+  
+  useEffect(() => {
+    if (user && userrole==="admin") {
+      setIsAdminLoggedIn(true)
+    } else
+      setIsAdminLoggedIn(false)
+  }, [userrole])
 
+  const onStatusClick = () => {
+    router.push(`/admin/setting/group/${slug}`)
+  }
   return (
     <>
       <Head>
@@ -38,6 +51,9 @@ const Group = () => {
           <div className="content-container">
             <div className="menu-container">
               <h3 className="menu-result">{subtitle}</h3>
+              {isAdminLoggedIn &&(
+                <div className="add-post" onClick={onStatusClick}>편집</div>
+              )}
               <div className="menu-border"></div>
             </div>
             <div className="content">

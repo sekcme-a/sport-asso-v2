@@ -12,7 +12,6 @@ const LoadPost = (props) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(props.folderName, props.page)
       setListData(tempData)
       if (props.page === 1) {
         setTimeout(() => {
@@ -36,7 +35,6 @@ const LoadPost = (props) => {
                 ])
               })
               setListData(tempData)
-              console.log(listData)
             })
           }
         },0)
@@ -72,7 +70,6 @@ const LoadPost = (props) => {
               ])
             })
             setListData(tempData)
-            console.log(listData)
           })
         }
       }

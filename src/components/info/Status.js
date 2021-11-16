@@ -13,9 +13,11 @@ const Status = (props) => {
   // const [imgList, setImgList] = useState([])
 
   useEffect(async () => {
+    // setLoading(true)
     if (props.data === undefined) {
       await db.collection("data").doc("status").get().then(async (doc) => {
         const res = JSON.parse(doc.data().data)
+        setStatusData(res)
         for (let i = 0; i < res.length; i++) {
           await storage.ref(`status/${res[i].img}`).getDownloadURL().then((url) => {
             res[i] = {
@@ -112,9 +114,7 @@ const Status = (props) => {
             </div>
             <div className={style.statusResultContainer}>
               <h3>대한생활체육회 임원 현황</h3>
-              {loading ? <h5>로딩중입니다...</h5> :
-                <h5>▶{getTotal()}</h5>
-              }
+              <h5>▶{getTotal()}</h5>
             </div>
             <div className={style.statusContainer}>
               {statusData.map((item, index) => {
@@ -132,13 +132,17 @@ const Status = (props) => {
                           <div className={style.idPhotoContainer}>
                             {/* <img className={style.idPhoto} src={item.img} alt="증명사진" /> */}
                             <div className={style.idPhoto}>
-                              <Image
-                              className="idPhoto"
-                              src={item.url}
-                              height={200}
-                              width={150}
-                              alt="사진"
-                              />
+                              {loading ?
+                                <h6>이미지 로딩중..</h6>
+                              :
+                                <Image
+                                  className="idPhoto"
+                                  src={item.url}
+                                  height={200}
+                                  width={150}
+                                  alt="사진"
+                                />
+                              }
                               {/* <img className="idPhoto" src={`https://firebasestorage.googleapis.com/v0/b/sports-asso-v2.appspot.com/o/status%2Fansqudgml.png?alt=media&token=7336fd19-59e2-493b-9d74-c500f0afca38`} alt="사진"/> */}
                             </div>
                           </div>

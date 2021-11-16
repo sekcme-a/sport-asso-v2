@@ -9,6 +9,7 @@ import { FileUpload } from "src/firebase/FileUpload"
 import { FileDelete } from "src/firebase/FileDelete"
 import { firestore as db } from "src/components/firebase"
 import { controlPostCount } from "src/firebase/controlPostCount"
+import style from "styles/admin/author.module.css"
 
 const QuillNoSSRWrapper = dynamic(import('react-quill'), {
   ssr: false,
@@ -416,44 +417,46 @@ const Editpost = () => {
   }
 
   return (
-    <div className="post-container">
+    <>
       {userrole === "admin" || userrole === "author" ? (
         <>
-          <form name="post">
-            <div className="post-title">
-              제목 : <input type="text" name="title" value={title} onChange={onTitleChange} placeholder="제목을 입력하세요" required />
-            </div>
-            첨부파일 : <input type="file" name="selectedFile[]" onChange={onFileChange} /><br />
-            {prevFileList && prevFileList.map((item, index) => {
-              if (item !== undefined) {
-                return (
-                  <h4 key={index} className="file-list">{item.name}<h4 className="file-list-delete" onClick={() => { onPrevFileListDeleteClick(item.url) }}>X</h4></h4>
-                )
-              }
-            })}
-            {fileList && fileList.map((item, index) => {
-              if (item !== undefined) {
-                return (
-                  <h4 key={index} className="file-list">{item.file.name}<h4 className="file-list-delete" onClick={() => { onFileListDeleteClick(item.file.name) }}>X</h4></h4>
-                )
-              }
-            })}
-            사진삽입 : <input type="file" name="selectedImg[]" onChange={onImgChange} accept="image/*"/><br />
-            <textarea name="imgURL" value={imgHTML}cols="60" rows="10" readOnly ></textarea><br/>
-            <input type="submit" value="업로드" onClick={onSubmit}></input>
-            <h4 onClick={onDeleteClick}>삭제</h4>
-          </form>
-          <QuillNoSSRWrapper onChange={onChange} modules={modules} value={textData} formats={formats} theme="snow" />
-          미리보기
-          <div className="post-preview" onClick={() => { onPreviewClick() }}><CachedIcon /></div>
-          <QuillNoSSRWrapper value={post} readOnly={true} theme="bubble" />
+          <div className={style.postContainer}>
+            <form name="post">
+              <div className={style.title}>
+                제목 : <input type="text" name="title" value={title} onChange={onTitleChange} placeholder="제목을 입력하세요" required />
+              </div>
+              <div className={style.addFile}>첨부파일 : <input type="file" name="selectedFile[]" onChange={onFileChange} /></div>
+              {prevFileList && prevFileList.map((item, index) => {
+                if (item !== undefined) {
+                  return (
+                    <><h4 key={index} className={style.files}>{item.name}<h4 className={style.fileDelete} onClick={() => { onPrevFileListDeleteClick(item.url) }}>X</h4></h4></>
+                  )
+                }
+              })}
+              {fileList && fileList.map((item, index) => {
+                if (item !== undefined) {
+                  return (
+                    <><h4 key={index} className={style.files}>{item.file.name}<h4 className={style.fileDelete} onClick={() => { onFileListDeleteClick(item.file.name) }}>X</h4></h4></>
+                  )
+                }
+              })}
+              <div className={style.addImg}>사진삽입 : <input type="file" name="selectedImg[]" onChange={onImgChange} accept="image/*"/><br /></div>
+              <textarea name="imgURL" value={imgHTML}cols="60" rows="10" readOnly ></textarea><br/>
+              <input className={style.submitButton} type="submit" value=" 변경 " onClick={onSubmit}></input><br/>
+              <h4 className={style.deleteButton} onClick={onDeleteClick}>삭제</h4>
+            </form>
+            <QuillNoSSRWrapper onChange={onChange} modules={modules} value={textData} formats={formats} theme="snow" />
+            <h4 className={style.preview}>미리보기</h4>
+            <div className={style.reload} onClick={() => { onPreviewClick() }}><CachedIcon /></div>
+            <QuillNoSSRWrapper value={post} readOnly={true} theme="bubble" />
+          </div>
         </>
       ) : (
         <>
           <h4>권한없음</h4>
         </>
       )}
-    </div>
+    </>
   )
 }
 export default Editpost

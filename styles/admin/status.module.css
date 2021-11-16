@@ -1,0 +1,53 @@
+.container{
+    margin: 20px 25%;
+    border: 1px solid #888;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(247, 252, 255);
+}
+.title{
+  margin-top: 10px;
+  font-size: 22px;
+  border-bottom: 1px solid black;
+  margin-bottom: 15px;
+}
+.container h5 {
+  margin-bottom: 5px;
+}
+
+.textarea{
+  margin-top: 5px;
+  width: 100%;
+}
+.saveButton{
+  display: inline-block;
+  background-color: #beabea;
+  padding: 2px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: .5s;
+}
+.saveButton:hover{
+  background-color: #9b7ce4;
+}
+.preview{
+  border-top: 1px solid black;
+  margin-top: 30px;
+}
+.reload{
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: .5s;
+  margin-bottom: 20px;
+}
+.reload:hover{
+  background-color: #bea;
+}
+
+
+@media (max-width: 1000px) {
+  .container {
+    margin: 20px 15%;
+  }
+}

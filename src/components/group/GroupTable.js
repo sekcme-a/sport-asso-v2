@@ -1,12 +1,19 @@
-import React, {useState} from 'react'
-import { GroupData } from "src/data/GroupData"
+import React, {useState, useEffect} from 'react'
 import style from "styles/group/Group.module.css"
-import {storage as db} from "src/components/firebase"
+import {firestore, storage as db} from "src/components/firebase"
 
 const GroupTable = (props) => {
   let id = -1;
   let num = 0;
-  const [imgUrl, setImgUrl] = useState("")
+  const [GroupData, setGroupData] = useState([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(async() => {
+    const res = props.data
+    setGroupData(res)
+    setLoading(false)
+  }, [props])
+  
   const getId = (groupName) => {
     for (let i = 0; i < GroupData.length; i++){
       if (GroupData[i].groupName === groupName) {
@@ -25,32 +32,36 @@ const GroupTable = (props) => {
   
   }
   return (
-    <div className={style.nationTable}>
-      {getId(props.groupName)}
-      <div className={style.nationItem}>
-        <p className={style.nationItemTitle}>회장</p>
-        <p className={style.nationItemContent}>{GroupData[id].leader}{GroupData[id].img && <container className={style.groupLookClose} onClick={() => { lookClose(GroupData[id].img) }}>자세히보기</container>}</p>
-      </div>
-      {GroupData[id].titleData.map((item, index) => {
-        return (
-          <div className={style.nationItem} key={index}>
-            {item === "홈페이지" ? (
-              <>
-                <p className={style.nationItemTitle}>홈페이지</p>
-                <a href={`https://${GroupData[id].contentData[num]}`}>{GroupData[id].contentData[num]}</a>
-                <div className={style.hide}>{num++}</div>
-              </>
-            ) : (
-              <>
-                  <p className={style.nationItemTitle}>{item}</p>
-                  <p className={style.nationItemContent}>{GroupData[id].contentData[num]}</p>
-                <div className={style.hide}>{num++}</div>
-              </>
-            )}
+    <>
+      {loading ? <h4> </h4> :
+        <div className={style.nationTable}>
+          {getId(props.groupName)}
+          <div className={style.nationItem}>
+            <p className={style.nationItemTitle}>회장</p>
+            <p className={style.nationItemContent}>{GroupData[id].leader}{GroupData[id].img && <container className={style.groupLookClose} onClick={() => { lookClose(GroupData[id].img) }}>자세히보기</container>}</p>
           </div>
-        )
-      })}
-    </div>
+          {GroupData[id].titleData!==undefined && GroupData[id].titleData.map((item, index) => {
+            return (
+              <div className={style.nationItem} key={index}>
+                {item === "홈페이지" ? (
+                  <>
+                    <p className={style.nationItemTitle}>홈페이지</p>
+                    <a href={`https://${GroupData[id].contentData[num]}`}>{GroupData[id].contentData[num]}</a>
+                    <div className={style.hide}>{num++}</div>
+                  </>
+                ) : (
+                  <>
+                    <p className={style.nationItemTitle}>{item}</p>
+                    <p className={style.nationItemContent}>{GroupData[id].contentData[num]}</p>
+                    <div className={style.hide}>{num++}</div>
+                  </>
+                )}
+              </div>
+            )
+          })}
+        </div>
+      }
+    </>
   )
 }
 

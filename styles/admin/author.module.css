@@ -1,0 +1,97 @@
+.postContainer{
+  margin: 20px 25%;
+  border: 1px solid #888;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: rgb(247, 252, 255);
+}
+.title{
+  font-weight: bold;
+  border-bottom: 1px dashed black;
+  padding-bottom: 3px;
+  font-size: 18px;
+}
+.title input{
+  font-size: 15px;
+  width: 50%;
+}
+.text{
+  margin-top: 5px;
+}
+.uploadSettingContainer{
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  width: 500px;
+  border-bottom: 1px solid rgb(188, 196, 197);
+  padding-bottom: 5px;
+}
+.uploadSettingContainer li{
+  width: 50%;
+}
+.addFile{
+  font-weight: bold;
+  margin-top: 10px;
+}
+.files{
+  font-size: 14px;
+  display: inline-block;
+}
+.fileDelete{
+  display: inline-block;
+  margin-left: 5px;
+  cursor: pointer;
+  background-color: red;
+  padding: 0 3px;
+  color: white;
+  border-radius: 2px;
+  border: .2px solid black;
+  font-size: 10px;
+}
+.addImg{
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.submitButton{
+  margin-bottom: 5px;
+}
+.preview {
+  border-top: 1px solid black;
+  margin-top: 30px;
+}
+
+.reload {
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: .5s;
+  margin-bottom: 20px;
+}
+
+.reload:hover {
+  background-color: #bea;
+}
+.deleteButton{
+  background-color: red;
+  display: inline-block;
+  margin-bottom: 5px;
+  padding: 2px 5px;
+  color: white;
+  font-size: 14px;
+  border-radius: 3px;
+  cursor: pointer;
+  
+}
+
+@media (max-width: 1000px) {
+  .postContainer {
+    margin: 20px 15%;
+  }
+  .uploadSettingContainer{
+    width: 100%;
+  }
+  .uploadSettingContainer li{
+    width: 100%;
+  }
+}

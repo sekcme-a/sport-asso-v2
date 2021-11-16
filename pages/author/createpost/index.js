@@ -12,6 +12,7 @@ import { firestore as db } from "src/components/firebase"
 // import { AddCommentOutlined } from "@mui/icons-material"
 import { controlPostCount } from "src/firebase/controlPostCount"
 // import { useBeforeunload } from "react-beforeunload"
+import style from "styles/admin/author.module.css"
 
 const QuillNoSSRWrapper = dynamic(import('react-quill'), {
   ssr: false,
@@ -349,48 +350,53 @@ const Createpost = () => {
   }
 
   return (
-    <div className="post-container">
+    <>
       {userrole === "admin" || userrole === "author" ? (
         <>
-          <form name="post">
-            <div className="post-title">
-              제목 : <input type="text" name="title" value={title} onChange={onTitleChange} placeholder="제목을 입력하세요" required />
-            </div>
-            <h4>업로드 위치</h4>
-            {MenuItems.map((item, index) => {
-              if (item.path) {
-                if (item.path.includes("notice")) {
+          <div className={style.postContainer}>
+            <form name="post">
+              <div className={style.title}>
+                제목 : <input type="text" name="title" value={title} onChange={onTitleChange} placeholder="제목을 입력하세요" required />
+              </div>
+              <h4 className={style.text}>업로드 위치</h4>
+              <ul className={style.uploadSettingContainer}>
+                {MenuItems.map((item, index) => {
+                  if (item.path) {
+                    if (item.path.includes("notice")) {
+                      return (
+                        <li>
+                            <input key={index} onChange={e=>{onCheckboxChange(e.currentTarget.checked,item.path)}} type="checkbox" name="postTo" value={item.subtitle} />{item.subtitle}<br />
+                        </li>
+                      )
+                    }
+                  }
+                })}
+              </ul>
+              <div className={style.addFile}>첨부파일 : <input type="file" name="selectedFile[]" onChange={onFileChange} /></div>
+              {fileList && fileList.map((item, index) => {
+                if (item !== undefined) {
                   return (
-                    <div>
-                        <input key={index} onChange={e=>{onCheckboxChange(e.currentTarget.checked,item.path)}} type="checkbox" name="postTo" value={item.subtitle} />{item.subtitle}<br />
-                    </div>
+                    <><h4 key={index} className={style.files}>{item.file.name}<h4 className={style.fileDelete} onClick={() => { onFileListDeleteClick(item.file.name) }}>X</h4></h4><br/></>
                   )
                 }
-              }
-            })}
-            첨부파일 : <input type="file" name="selectedFile[]" onChange={onFileChange} /><br />
-            {fileList && fileList.map((item, index) => {
-              if (item !== undefined) {
-                return (
-                  <h4 key={index} className="file-list">{item.file.name}<h4 className="file-list-delete" onClick={() => { onFileListDeleteClick(item.file.name) }}>X</h4></h4>
-                )
-              }
-            })}
-            사진삽입 : <input type="file" name="selectedImg[]" onChange={onImgChange} accept="image/*"/><br />
-            <textarea name="imgURL" value={imgHTML}cols="60" rows="10" readOnly ></textarea><br/>
-            <input type="submit" value="업로드" onClick={onSubmit}></input>
-          </form>
-          <QuillNoSSRWrapper onChange={onChange} modules={modules} formats={formats} theme="snow" />
-          미리보기
-          <div className="post-preview" onClick={() => { onPreviewClick() }}><CachedIcon /></div>
+              })}
+              <div className={style.addImg}>사진삽입 : <input type="file" name="selectedImg[]" onChange={onImgChange} accept="image/*"/><br /></div>
+              <textarea name="imgURL" value={imgHTML}cols="60" rows="10" readOnly ></textarea><br/>
+              <input className={style.submitButton} type="submit" value="업로드" onClick={onSubmit}></input>
+            </form>
+            <QuillNoSSRWrapper onChange={onChange} modules={modules} formats={formats} theme="snow" />
+          
+          <h4 className={style.preview}>미리보기</h4>
+          <div className={style.reload} onClick={() => { onPreviewClick() }}><CachedIcon /></div>
           <QuillNoSSRWrapper value={post} readOnly={true} theme="bubble" />
+          </div>
         </>
       ) : (
         <>
           <h4>권한없음</h4>
         </>
       )}
-    </div>
+    </>
   )
 }
 export default Createpost
