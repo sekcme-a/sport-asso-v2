@@ -140,10 +140,10 @@ const LoginUI = () => {
           <div className="forms">
             <div className="form-content">
               <div className="login-form">
-                <div className="title">Login</div>
+                <div className="title">Admin Login</div>
                 <form action="#">
                   <div className="input-boxes">
-                    <div className="input-box">
+                    {/* <div className="input-box">
                       <i>
                         <EmailIcon />
                       </i>
@@ -153,15 +153,15 @@ const LoginUI = () => {
                       <i><LockIcon /></i>
                       <input type="password" onChange={onChange} name="loginPassword" placeholder="비밀번호를 입력하세요" required />
                     </div>
-                    <div className="text"><Link href="/login">비밀번호를 잊으셨나요?</Link></div> {/*미완성*/}
-                    <div className="loginButton input-box">
+                    <div className="text"><Link href="/login">비밀번호를 잊으셨나요?</Link></div> 미완성 */}
+                    {/* <div className="loginButton input-box">
                       <input type="submit" onClick={onLoginClick} value="로그인" />
-                    </div>
+                    </div> */}
                     {/* <div className="loginButton input-box">
                       <div className="input">구글로 로그인</div>
                     </div> */}
                       <SignInButton />
-                    <div className="text sign-up-text">계정이 아직 없으신가요? <label htmlFor="flip">회원가입</label></div>
+                    {/* <div className="text sign-up-text">계정이 아직 없으신가요? <label htmlFor="flip">회원가입</label></div> */}
                   </div>
                 </form>
               </div>
