@@ -9,7 +9,6 @@ import { UserContext } from "src/context";
 const Status = () => {
   const [data, setData] = useState([])
   const [text, setText] = useState("")
-  const [prevData, setPrevData] = useState([])
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false)
   const { user, userrole } = useContext(UserContext);
   useEffect(() => {
@@ -45,7 +44,7 @@ const Status = () => {
     setText(event.target.value)
   }
 
-  const onPreviewClick = async () => {
+  const onPreviewClick = () => {
     let temp="[";
     const items = text.split("\n");
     items.forEach((item) => {
@@ -78,9 +77,9 @@ const Status = () => {
     try {
       const res = JSON.parse(temp)
       setData(res)
-      setPrevData(res)
     } catch (e) {
-      alert("형식에 맞게 작성되지않았습니다!\n"+e)
+      alert("형식에 맞게 작성되지않았습니다!\n" + e)
+      return false;
     }
   }
 
@@ -105,12 +104,22 @@ const Status = () => {
         temp += `{"spot":"${splitedItem[0]}",`
         temp += `"name":"${splitedItem[1]}",`
         temp += `"img":"${splitedItem[2]}",`
-        temp += `"data":[`
-        for (let i = 3; i < splitedItem.length; i++) {
-          if (i === splitedItem.length - 1)
-            temp += `"${splitedItem[i]}"]},`
-          else
-            temp += `"${splitedItem[i]}",`
+        if (splitedItem.length === 3)
+          temp+=`"data":[""]},`
+        if(splitedItem.length>3)
+          temp += `"data":[`
+        if (splitedItem.length === 4) {
+          temp += `"${splitedItem[3]}"]},`
+        }
+        else {
+          for (let i = 3; i < splitedItem.length; i++) {
+            if (i === 3)
+              temp +=`"${splitedItem[i]}",`
+            else if (i === splitedItem.length - 1)
+              temp += `"${splitedItem[i]}"]},`
+            else
+              temp += `"${splitedItem[i]}",`
+          }
         }
       }
     })
@@ -122,7 +131,8 @@ const Status = () => {
       alert("성공적으로 변경되었습니다.")
       router.push("/")
     } catch (e) {
-      alert("형식에 맞게 작성되지않았습니다!\n"+e)
+      alert("형식에 맞게 작성되지않았습니다!\n" + e)
+      return false;
     }
   }
   return (
@@ -135,8 +145,8 @@ const Status = () => {
           <h4 className={style.saveButton}onClick={onSaveClick}>저장</h4>
           <br/>
           <h4 className={style.preview}>미리보기</h4>
-          <div className={style.reload} onClick={() => { onPreviewClick() }}><CachedIcon /></div>
-          <Statuss data={prevData} />
+          <div className={style.reload} onClick={onPreviewClick}><CachedIcon /></div>
+          <Statuss data={data} />
         </>
         :
         <h4>권한없음</h4>

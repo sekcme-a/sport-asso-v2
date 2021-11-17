@@ -14,6 +14,7 @@ const Status = (props) => {
 
   useEffect(async () => {
     // setLoading(true)
+    console.log(props.data)
     if (props.data === undefined) {
       await db.collection("data").doc("status").get().then(async (doc) => {
         const res = JSON.parse(doc.data().data)
@@ -31,6 +32,7 @@ const Status = (props) => {
       })
     } else {
       const res = props.data
+      let success = true;
       for (let i = 0; i < res.length; i++) {
           await storage.ref(`status/${res[i].img}`).getDownloadURL().then((url) => {
             res[i] = {
@@ -38,14 +40,17 @@ const Status = (props) => {
               url: url
             }
           }).catch((e) => {
-            alert(`형식에 맞게 작성해주세요!\n${e}`)
-            console.log(e)
+            success = false
+            alert(`이미지명을 다시 확인해주세요!\n${e}`)
+            return
           })
         }
-      setStatusData(res)
-      setLoading(false)
+      if (success) {
+        setStatusData(res)
+        setLoading(false)
+      }
     }
-  },[props])
+  },[props.data])
   //총원수 및 임원 수 구하기.
   const getTotal = () => {
     let spot = [];
