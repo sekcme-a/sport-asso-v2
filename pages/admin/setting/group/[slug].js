@@ -5,6 +5,7 @@ import { useRouter } from "next/router"
 import Group from "components/group/Group"
 import style from "styles/admin/status.module.css"
 import { UserContext } from "src/context";
+import Link from "next/link"
 
 const GroupSetting = () => {
   const [data, setData] = useState([])
@@ -136,10 +137,14 @@ const GroupSetting = () => {
       alert("형식에 맞게 작성되지않았습니다!\n"+e)
     }
   }
+
   return (
     <div className={style.container}>
       {isAdminLoggedIn ?
         <>
+          <Link href={`https://firebasestorage.googleapis.com/v0/b/sports-asso-v2.appspot.com/o/%EC%9E%84%EC%9B%90%ED%94%84%EB%A1%9C%ED%95%84%ED%85%9C%ED%94%8C%EB%A6%BF.pptx?alt=media&token=b0bef777-e3f5-4f1c-b076-24383f07d4b0`}>
+            <h4 className="guideBookDownloadButton" >임원프로필템플릿 다운로드</h4>
+          </Link>
           {slug === "nation" && <h4 className={style.title}>전국체육회현황 편집</h4>}
           {slug === "international" && <h4 className={style.title}>국제체육회현황 편집</h4>}
           {slug === "sports" && <h4 className={style.title}>종목별 운영현황 편집</h4>}
