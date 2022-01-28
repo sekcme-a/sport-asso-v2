@@ -53,6 +53,8 @@
   font-size: 15px;
   color: white;
   transition: .5s;
+  border-bottom: 0 !important;
+  word-break: keep-all;
 }
 .log-out:hover{
   background-color: #4921a8;

@@ -39,7 +39,9 @@ const Navbar = () => {
       setIsUserLoggedIn(true)
     } else
       setIsUserLoggedIn(false)
-  },[user])
+  }, [user])
+  
+
 
   return (
     <div className="navbar">
@@ -74,6 +76,7 @@ const Navbar = () => {
             </>
           )
         })}
+        <Link href="http://ksfaa.co.kr"><a className="nav-item log-out" target="_blank">회원가입 및 회원증 확인</a></Link>
         {isUserLoggedIn && <li className="nav-item log-out" onClick={logoutClick}>로그아웃</li>}
       </ul>
     </div>

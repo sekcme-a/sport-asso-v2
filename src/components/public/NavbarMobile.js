@@ -40,14 +40,15 @@ const Navbar = () => {
         <Link href="/" passHref>
           <Image
             src="/logo.png"
-            height={60}
-            width={190}
+            height={50}
+            width={150}
             alt="대한생활체육회 로고"
             className="navbar-logo-img"
           />
         </Link>
       </div>
       <div className="mobile-menu-icon" onClick={handleClick}>
+        <Link href="http://ksfaa.co.kr"><a className="mobile-login" target="_blank">회원가입 및 회원증 확인</a></Link>
         {click ? <CloseIcon />:<MenuIcon />}
       </div>
       <ul className={click ? 'mobile-nav-menu active' : 'mobile-nav-menu'}>
