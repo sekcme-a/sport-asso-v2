@@ -56,3 +56,7 @@
   border-bottom: 1px solid rgba(68, 68, 68, 0.589);
   cursor: pointer;
 }
+.mobile-nav-item a{
+  text-decoration: none;
+  color: white;
+}

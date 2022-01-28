@@ -63,6 +63,17 @@ const Navbar = () => {
               ) : (
                 <>
                     {titleClick && (selectedTitle === item.title && (item.type === "sub" && (
+                      item.highlight === "link" ?
+                      
+                        <li key={index} className="mobile-nav-item">
+                          <Link href="http://ksfaa.co.kr">
+                            <a target='_blank' onClick={closeMobileMenu}>
+                              {item.subtitle}
+                            </a>
+                          </Link>
+                        </li>
+                      
+                      : 
                       item.path.includes("notice") ?
                         <Link href={"/notice/[subtitle]/[page]"} as={`${item.path}/1`}>
                           <li key={index} className="mobile-nav-item" onClick={closeMobileMenu}>
