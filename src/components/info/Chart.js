@@ -14,9 +14,9 @@ const Greet = () => {
       </Head>
       <div>
         <Image
-                src="/chart.jpg"
-                height={1800}
-                width={1600}
+                src="/chart4.jpg"
+                height={4500}
+                width={2200}
                 alt="중앙 조직도"
           />
       </div>
